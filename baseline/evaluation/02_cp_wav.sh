@@ -37,7 +37,7 @@ for dset in libri_dev_{enrolls,trials_f,trials_m} \
         # echo "key:$key"
         wav_path="${line[1]}"
         echo "${dir}"
-        # echo "wav_path:$wav_path"
+        echo "wav_path:$wav_path"
         # wav_name=${wav_path##*/}
         # echo "wav_name: $wav_name"
         mkdir -p "$enroll_dir/$dir"
