@@ -1,0 +1,440 @@
+[0;32m
+Stage 11: Evaluate datasets using speaker verification...[0m
+[0;31m**ASV: vctk_dev_trials_f, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_f/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_dev_enrolls-vctk_dev_trials_f[0m
+EER: 5.882%
+minDCF(p-target=0.01): 0.0588
+minDCF(p-target=0.001): 0.0588
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_f, enroll - original, trial - anonymized**[0m
+[0;31m  compute MFCC: vctk_dev_trials_f_anon[0m
+steps/make_mfcc.sh --nj 3 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_dev_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_trials_f_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_f_anon
+fix_data_dir.sh: kept all 62 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_trials_f_anon/.backup
+[0;31m  compute VAD: vctk_dev_trials_f_anon[0m
+sid/compute_vad_decision.sh --nj 3 --cmd run.pl corpora/test_utt_list_2/data/vctk_dev_trials_f_anon
+Created VAD output for vctk_dev_trials_f_anon
+fix_data_dir.sh: kept all 62 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_trials_f_anon/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_dev_enrolls-vctk_dev_trials_f_anon[0m
+EER: 35.29%
+minDCF(p-target=0.01): 0.5882
+minDCF(p-target=0.001): 0.5882
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_f, enroll - anonymized, trial - anonymized**[0m
+[0;31m  compute MFCC: vctk_dev_enrolls_anon[0m
+steps/make_mfcc.sh --nj 8 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_dev_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_enrolls_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_enrolls_anon
+fix_data_dir.sh: kept all 160 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_enrolls_anon/.backup
+[0;31m  compute VAD: vctk_dev_enrolls_anon[0m
+sid/compute_vad_decision.sh --nj 8 --cmd run.pl corpora/test_utt_list_2/data/vctk_dev_enrolls_anon
+Created VAD output for vctk_dev_enrolls_anon
+fix_data_dir.sh: kept all 160 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_enrolls_anon/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_anon[0m
+EER: 35.29%
+minDCF(p-target=0.01): 0.4706
+minDCF(p-target=0.001): 0.4706
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_m, enroll - original, trial - original**[0m
+[0;31m  compute MFCC: vctk_dev_trials_m[0m
+steps/make_mfcc.sh --nj 3 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_dev_trials_m
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_trials_m
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_m
+fix_data_dir.sh: kept all 61 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_trials_m/.backup
+[0;31m  compute VAD: vctk_dev_trials_m[0m
+sid/compute_vad_decision.sh --nj 3 --cmd run.pl corpora/test_utt_list_2/data/vctk_dev_trials_m
+Created VAD output for vctk_dev_trials_m
+fix_data_dir.sh: kept all 61 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_trials_m/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_m/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_dev_enrolls-vctk_dev_trials_m[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_m, enroll - original, trial - anonymized**[0m
+[0;31m  compute MFCC: vctk_dev_trials_m_anon[0m
+steps/make_mfcc.sh --nj 3 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_dev_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_trials_m_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_trials_m_anon
+fix_data_dir.sh: kept all 61 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_trials_m_anon/.backup
+[0;31m  compute VAD: vctk_dev_trials_m_anon[0m
+sid/compute_vad_decision.sh --nj 3 --cmd run.pl corpora/test_utt_list_2/data/vctk_dev_trials_m_anon
+Created VAD output for vctk_dev_trials_m_anon
+fix_data_dir.sh: kept all 61 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_trials_m_anon/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_dev_enrolls-vctk_dev_trials_m_anon[0m
+EER: 70%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_m, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_anon[0m
+EER: 10%
+minDCF(p-target=0.01): 0.1000
+minDCF(p-target=0.001): 0.1000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_test_trials_f, enroll - original, trial - original**[0m
+[0;31m  compute MFCC: vctk_test_enrolls[0m
+steps/make_mfcc.sh --nj 6 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_test_enrolls
+steps/make_mfcc.sh: moving corpora/test_utt_list_2/data/vctk_test_enrolls/feats.scp to corpora/test_utt_list_2/data/vctk_test_enrolls/.backup
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_enrolls
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_enrolls
+fix_data_dir.sh: kept all 120 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_enrolls/.backup
+[0;31m  compute VAD: vctk_test_enrolls[0m
+sid/compute_vad_decision.sh --nj 6 --cmd run.pl corpora/test_utt_list_2/data/vctk_test_enrolls
+sid/compute_vad_decision.sh: moving corpora/test_utt_list_2/data/vctk_test_enrolls/vad.scp to corpora/test_utt_list_2/data/vctk_test_enrolls/.backup
+Created VAD output for vctk_test_enrolls
+fix_data_dir.sh: kept all 120 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_enrolls/.backup
+[0;31m  compute MFCC: vctk_test_trials_f[0m
+steps/make_mfcc.sh --nj 3 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_test_trials_f
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_trials_f
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_f
+fix_data_dir.sh: kept all 81 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_f/.backup
+[0;31m  compute VAD: vctk_test_trials_f[0m
+sid/compute_vad_decision.sh --nj 3 --cmd run.pl corpora/test_utt_list_2/data/vctk_test_trials_f
+Created VAD output for vctk_test_trials_f
+fix_data_dir.sh: kept all 81 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_f/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+[0;31m  compute x-vect: vctk_test_enrolls[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 6 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_2/data/vctk_test_enrolls exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_2/data/vctk_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_f/spk2utt
+[0;31m  compute x-vect: vctk_test_trials_f[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_2/data/vctk_test_trials_f exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_2/data/vctk_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_test_enrolls-vctk_test_trials_f[0m
+EER: 4.255%
+minDCF(p-target=0.01): 0.0851
+minDCF(p-target=0.001): 0.0851
+Cllr (min/act): 0.072/4.720
+     ROCCH-EER: 3.030%
+
+linkability: 0.564052
+
+
+vctk_test_enrolls-vctk_test_trials_f
+Population: 0.669 bit
+Individual: 1.926 (B)
+
+[0;31m**ASV: vctk_test_trials_f, enroll - original, trial - anonymized**[0m
+[0;31m  compute MFCC: vctk_test_trials_f_anon[0m
+steps/make_mfcc.sh --nj 3 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_test_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_trials_f_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_f_anon
+fix_data_dir.sh: kept all 81 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_f_anon/.backup
+[0;31m  compute VAD: vctk_test_trials_f_anon[0m
+sid/compute_vad_decision.sh --nj 3 --cmd run.pl corpora/test_utt_list_2/data/vctk_test_trials_f_anon
+Created VAD output for vctk_test_trials_f_anon
+fix_data_dir.sh: kept all 81 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_f_anon/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_f_anon/spk2utt
+[0;31m  compute x-vect: vctk_test_trials_f_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_2/data/vctk_test_trials_f_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_2/data/vctk_test_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_test_enrolls-vctk_test_trials_f_anon[0m
+EER: 19.15%
+minDCF(p-target=0.01): 0.3404
+minDCF(p-target=0.001): 0.3404
+Cllr (min/act): 0.406/27.534
+     ROCCH-EER: 16.354%
+
+linkability: 0.291795
+
+
+vctk_test_enrolls-vctk_test_trials_f_anon
+Population: 0.424 bit
+Individual: 1.787 (B)
+
+[0;31m**ASV: vctk_test_trials_f, enroll - anonymized, trial - anonymized**[0m
+[0;31m  compute MFCC: vctk_test_enrolls_anon[0m
+steps/make_mfcc.sh --nj 6 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_test_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_enrolls_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_enrolls_anon
+fix_data_dir.sh: kept all 120 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_enrolls_anon/.backup
+[0;31m  compute VAD: vctk_test_enrolls_anon[0m
+sid/compute_vad_decision.sh --nj 6 --cmd run.pl corpora/test_utt_list_2/data/vctk_test_enrolls_anon
+Created VAD output for vctk_test_enrolls_anon
+fix_data_dir.sh: kept all 120 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_enrolls_anon/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls_anon/spk2utt
+[0;31m  compute x-vect: vctk_test_enrolls_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 6 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_2/data/vctk_test_enrolls_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_2/data/vctk_test_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_test_enrolls_anon-vctk_test_trials_f_anon[0m
+EER: 6.383%
+minDCF(p-target=0.01): 0.1489
+minDCF(p-target=0.001): 0.1489
+Cllr (min/act): 0.142/1.078
+     ROCCH-EER: 4.361%
+
+linkability: 0.411218
+
+
+vctk_test_enrolls_anon-vctk_test_trials_f_anon
+Population: 0.616 bit
+Individual: 1.895 (B)
+
+[0;31m**ASV: vctk_test_trials_m, enroll - original, trial - original**[0m
+[0;31m  compute MFCC: vctk_test_trials_m[0m
+steps/make_mfcc.sh --nj 3 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_test_trials_m
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_trials_m
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_m
+fix_data_dir.sh: kept all 76 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_m/.backup
+[0;31m  compute VAD: vctk_test_trials_m[0m
+sid/compute_vad_decision.sh --nj 3 --cmd run.pl corpora/test_utt_list_2/data/vctk_test_trials_m
+Created VAD output for vctk_test_trials_m
+fix_data_dir.sh: kept all 76 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_m/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_m/spk2utt
+[0;31m  compute x-vect: vctk_test_trials_m[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_2/data/vctk_test_trials_m exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_2/data/vctk_test_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_test_enrolls-vctk_test_trials_m[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_test_trials_m, enroll - original, trial - anonymized**[0m
+[0;31m  compute MFCC: vctk_test_trials_m_anon[0m
+steps/make_mfcc.sh --nj 3 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_2/data/vctk_test_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_trials_m_anon
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_trials_m_anon
+fix_data_dir.sh: kept all 76 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_m_anon/.backup
+[0;31m  compute VAD: vctk_test_trials_m_anon[0m
+sid/compute_vad_decision.sh --nj 3 --cmd run.pl corpora/test_utt_list_2/data/vctk_test_trials_m_anon
+Created VAD output for vctk_test_trials_m_anon
+fix_data_dir.sh: kept all 76 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_trials_m_anon/.backup
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_m_anon/spk2utt
+[0;31m  compute x-vect: vctk_test_trials_m_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_2/data/vctk_test_trials_m_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_2/data/vctk_test_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_test_enrolls-vctk_test_trials_m_anon[0m
+EER: 11.11%
+minDCF(p-target=0.01): 0.1852
+minDCF(p-target=0.001): 0.1852
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_test_trials_m, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-07-55/ASV-vctk_test_enrolls_anon-vctk_test_trials_m_anon[0m
+EER: 18.52%
+minDCF(p-target=0.01): 0.3704
+minDCF(p-target=0.001): 0.3704
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "../zebra/zero_evidence.py", line 42, in <module>
+    zebra_framework(plo_plot=zebra_obj, scr_path=score_file, key_path=key_file, label=label, color_min=line_style_min)
+  File "/data/yh/Voice-Privacy-Challenge-2020/zebra/zebra.py", line 66, in zebra_framework
+    classA_scores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+pwd:/data/yh/Voice-Privacy-Challenge-2020/baseline
+[0;32m
+Stage 12: Making ASR evaluation subsets...[0m
+Directory data/libri_dev_trials_f does not exist

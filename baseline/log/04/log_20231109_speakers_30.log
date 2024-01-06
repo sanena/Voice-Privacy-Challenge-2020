@@ -1,0 +1,38 @@
+nohup: 忽略输入
+[0;32m
+Stage 11: Evaluate datasets using speaker verification...[0m
+[0;31m**ASV: libri_dev_trials_f, enroll - original, trial - original**[0m
+[0;31m  compute MFCC: libri_dev_enrolls[0m
+steps/make_mfcc.sh --nj 1 --cmd run.pl --write-utt2num-frames true corpora/test_speakers_30/data/libri_dev_enrolls
+utils/validate_data_dir.sh: WARNING: you have only one speaker.  This probably a bad idea.
+   Search for the word 'bold' in http://kaldi-asr.org/doc/data_prep.html
+   for more information.
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_speakers_30/data/libri_dev_enrolls
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_enrolls
+fix_data_dir.sh: kept all 65 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/libri_dev_enrolls/.backup
+[0;31m  compute VAD: libri_dev_enrolls[0m
+sid/compute_vad_decision.sh --nj 1 --cmd run.pl corpora/test_speakers_30/data/libri_dev_enrolls
+Created VAD output for libri_dev_enrolls
+fix_data_dir.sh: kept all 65 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/libri_dev_enrolls/.backup
+[0;31m  compute MFCC: libri_dev_trials_f[0m
+steps/make_mfcc.sh --nj 1 --cmd run.pl --write-utt2num-frames true corpora/test_speakers_30/data/libri_dev_trials_f
+utils/validate_data_dir.sh: WARNING: you have only one speaker.  This probably a bad idea.
+   Search for the word 'bold' in http://kaldi-asr.org/doc/data_prep.html
+   for more information.
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_speakers_30/data/libri_dev_trials_f
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_trials_f
+fix_data_dir.sh: kept all 65 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/libri_dev_trials_f/.backup
+[0;31m  compute VAD: libri_dev_trials_f[0m
+sid/compute_vad_decision.sh --nj 1 --cmd run.pl corpora/test_speakers_30/data/libri_dev_trials_f
+Created VAD output for libri_dev_trials_f
+fix_data_dir.sh: kept all 65 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/libri_dev_trials_f/.backup
+spk2utt: corpora/test_speakers_30/data/libri_dev_enrolls/spk2utt
+spk2utt: corpora/test_speakers_30/data/libri_dev_trials_f/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-11-09-20-58-46/ASV-libri_dev_enrolls-libri_dev_trials_f[0m
+run.pl: job failed, log is in exp/result/results-2023-11-09-20-58-46/ASV-libri_dev_enrolls-libri_dev_trials_f/log/ivector-plda-scoring.log

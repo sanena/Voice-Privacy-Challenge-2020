@@ -1,0 +1,109 @@
+pwd:/data/yh/Voice-Privacy-Challenge-2020/baseline
+[0;32m
+Stage 12: Making ASR evaluation subsets...[0m
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_dev_asr corpora/test_utt_list_2/data/vctk_dev_trials_f_all corpora/test_utt_list_2/data/vctk_dev_trials_m_all
+dset:corpora/test_utt_list_2/data/vctk_dev_asr, first_src: corpora/test_utt_list_2/data/vctk_dev_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 260 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_asr/.backup
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_dev_asr_anon corpora/test_utt_list_2/data/vctk_dev_trials_f_all_anon corpora/test_utt_list_2/data/vctk_dev_trials_m_all_anon
+dset:corpora/test_utt_list_2/data/vctk_dev_asr_anon, first_src: corpora/test_utt_list_2/data/vctk_dev_trials_f_all_anon
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 260 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_asr_anon/.backup
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_test_asr corpora/test_utt_list_2/data/vctk_test_trials_f_all corpora/test_utt_list_2/data/vctk_test_trials_m_all
+dset:corpora/test_utt_list_2/data/vctk_test_asr, first_src: corpora/test_utt_list_2/data/vctk_test_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 298 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_asr/.backup
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_test_asr_anon corpora/test_utt_list_2/data/vctk_test_trials_f_all_anon corpora/test_utt_list_2/data/vctk_test_trials_m_all_anon
+dset:corpora/test_utt_list_2/data/vctk_test_asr_anon, first_src: corpora/test_utt_list_2/data/vctk_test_trials_f_all_anon
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 298 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_asr_anon/.backup
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+test1
+test2
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+test1
+test2
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+test1
+test2
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+test1
+test2
+[0;32m
+Stage 14: Collecting results[0m
+find: 'exp/result/results-2024-01-01-20-48-54': No such file or directory
+find: 'exp/result/results-2024-01-01-20-48-54': No such file or directory
+[0;32m
+Stage 15: Compute the de-indentification and the voice-distinctiveness preservation with the similarity matrices[0m
+
+Stage 15: Compute the de-indentification and the voice-distinctiveness for vctk_dev_trials_f[0m
+asv_eval_model = exp/models/asv_eval/xvect_01709_1
+set_test = vctk_dev_trials_f
+plda_dir = exp/models/asv_eval/xvect_01709_1/xvect_train_clean_360
+results = exp/result/results-2024-01-01-20-48-54
+Traceback (most recent call last):
+  File "local/similarity_matrices/create_trial.py", line 37, in <module>
+    utt2spk             = readMat(args.utt2spk)
+  File "local/similarity_matrices/create_trial.py", line 7, in readMat
+    fh = open(ar)
+FileNotFoundError: [Errno 2] No such file or directory: 'corpora/data/utt_list/vctk_dev_trials_f/utt2spk'

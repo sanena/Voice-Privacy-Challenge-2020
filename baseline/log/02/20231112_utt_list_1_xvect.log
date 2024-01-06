@@ -1,0 +1,62 @@
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/libri_dev_enrolls
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/libri_dev_trials_f
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/libri_dev_trials_m
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/vctk_dev_enrolls
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/vctk_dev_trials_f_all
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/vctk_dev_trials_m_all
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/libri_test_enrolls
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/libri_test_trials_f
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/libri_test_trials_m
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/vctk_test_enrolls
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/vctk_test_trials_f_all
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1/xvector/vctk_test_trials_m_all
+/data/yh/Voice-Privacy-Challenge-2020/baseline/corpora/test_utt_list_1
+  adding: xvector/ (stored 0%)
+  adding: xvector/vctk_dev_enrolls/ (stored 0%)
+  adding: xvector/vctk_dev_enrolls/spk_xvector.ark (deflated 7%)
+  adding: xvector/vctk_dev_enrolls/num_utts.ark (deflated 30%)
+  adding: xvector/vctk_dev_enrolls/spk_xvector.scp (deflated 67%)
+  adding: xvector/vctk_dev_trials_f_all/ (stored 0%)
+  adding: xvector/vctk_dev_trials_f_all/spk_xvector.ark (deflated 7%)
+  adding: xvector/vctk_dev_trials_f_all/num_utts.ark (deflated 4%)
+  adding: xvector/vctk_dev_trials_f_all/spk_xvector.scp (deflated 66%)
+  adding: xvector/vctk_test_trials_f_all/ (stored 0%)
+  adding: xvector/vctk_test_trials_f_all/spk_xvector.ark (deflated 7%)
+  adding: xvector/vctk_test_trials_f_all/num_utts.ark (deflated 7%)
+  adding: xvector/vctk_test_trials_f_all/spk_xvector.scp (deflated 67%)
+  adding: xvector/libri_dev_trials_f/ (stored 0%)
+  adding: xvector/libri_dev_trials_f/spk_xvector.ark (deflated 7%)
+  adding: xvector/libri_dev_trials_f/num_utts.ark (stored 0%)
+  adding: xvector/libri_dev_trials_f/spk_xvector.scp (deflated 53%)
+  adding: xvector/vctk_test_trials_m_all/ (stored 0%)
+  adding: xvector/vctk_test_trials_m_all/spk_xvector.ark (deflated 7%)
+  adding: xvector/vctk_test_trials_m_all/num_utts.ark (deflated 4%)
+  adding: xvector/vctk_test_trials_m_all/spk_xvector.scp (deflated 66%)
+  adding: xvector/libri_test_trials_f/ (stored 0%)
+  adding: xvector/libri_test_trials_f/spk_xvector.ark (deflated 7%)
+  adding: xvector/libri_test_trials_f/num_utts.ark (deflated 6%)
+  adding: xvector/libri_test_trials_f/spk_xvector.scp (deflated 54%)
+  adding: xvector/vctk_dev_trials_m_all/ (stored 0%)
+  adding: xvector/vctk_dev_trials_m_all/spk_xvector.ark (deflated 7%)
+  adding: xvector/vctk_dev_trials_m_all/num_utts.ark (deflated 11%)
+  adding: xvector/vctk_dev_trials_m_all/spk_xvector.scp (deflated 66%)
+  adding: xvector/libri_dev_enrolls/ (stored 0%)
+  adding: xvector/libri_dev_enrolls/spk_xvector.ark (deflated 8%)
+  adding: xvector/libri_dev_enrolls/num_utts.ark (deflated 16%)
+  adding: xvector/libri_dev_enrolls/spk_xvector.scp (deflated 79%)
+  adding: xvector/vctk_test_enrolls/ (stored 0%)
+  adding: xvector/vctk_test_enrolls/spk_xvector.ark (deflated 7%)
+  adding: xvector/vctk_test_enrolls/num_utts.ark (deflated 30%)
+  adding: xvector/vctk_test_enrolls/spk_xvector.scp (deflated 67%)
+  adding: xvector/libri_test_enrolls/ (stored 0%)
+  adding: xvector/libri_test_enrolls/spk_xvector.ark (deflated 7%)
+  adding: xvector/libri_test_enrolls/num_utts.ark (deflated 23%)
+  adding: xvector/libri_test_enrolls/spk_xvector.scp (deflated 73%)
+  adding: xvector/libri_dev_trials_m/ (stored 0%)
+  adding: xvector/libri_dev_trials_m/spk_xvector.ark (deflated 7%)
+  adding: xvector/libri_dev_trials_m/num_utts.ark (stored 0%)
+  adding: xvector/libri_dev_trials_m/spk_xvector.scp (deflated 54%)
+  adding: xvector/libri_test_trials_m/ (stored 0%)
+  adding: xvector/libri_test_trials_m/spk_xvector.ark (deflated 7%)
+  adding: xvector/libri_test_trials_m/num_utts.ark (stored 0%)
+  adding: xvector/libri_test_trials_m/spk_xvector.scp (deflated 54%)

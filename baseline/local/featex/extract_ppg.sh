@@ -25,11 +25,15 @@ data=$1
 ppg_model=$2
 ppg_dir=$3
 
-original_data_dir=data/${data}
-data_dir=data/${data}_hires
+# original_data_dir=data/${data}
+# data_dir=data/${data}_hires
+original_data_dir=${data}
+data_dir=${data}_hires
+
+dset=$(echo $data_dir | awk -F'/' '{print $NF}')
 
 ivec_extractor=${ppg_model}/nnet3_cleaned/extractor
-ivec_data_dir=${ppg_model}/nnet3_cleaned/ivectors_${data}_hires
+ivec_data_dir=${ppg_model}/nnet3_cleaned/ivectors_${dset}_hires
 
 model_dir=${ppg_model}/chain_cleaned/tdnn_1d_sp
 
@@ -37,6 +41,7 @@ model_dir=${ppg_model}/chain_cleaned/tdnn_1d_sp
 
 export LC_ALL=C
 if [ $stage -le 0 ]; then
+  echo "extract ppg stage0"
   utils/copy_data_dir.sh ${original_data_dir} ${data_dir}
   steps/make_mfcc.sh --nj $nj --mfcc-config conf/mfcc_hires.conf \
 	--cmd "$train_cmd" ${data_dir}
@@ -46,6 +51,7 @@ if [ $stage -le 0 ]; then
 fi
 
 if [ $stage -le 1 ]; then
+    echo "extract ppg stage1"
     # Keeping nj to 1 due to GPU memory issues
     local/featex/extract_bn.sh --cmd "$train_cmd" --nj 1 \
 	--iv-root ${ivec_data_dir} --model-dir ${model_dir} \

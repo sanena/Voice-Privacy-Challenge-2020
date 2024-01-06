@@ -1,0 +1,22 @@
+nohup: 忽略输入
+[0;32m
+Stage 11: Evaluate datasets using speaker verification...[0m
+[0;31m**ASV: libri_dev_trials_f, enroll - original, trial - original**[0m
+spk2utt: corpora/test_speakers_30/libri_dev_enrolls/spk2utt
+[0;31m  compute x-vect: libri_dev_enrolls[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 1 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_speakers_30/libri_dev_enrolls exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_speakers_30/libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_speakers_30/libri_dev_trials_f/spk2utt
+[0;31m  compute x-vect: libri_dev_trials_f[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 1 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_speakers_30/libri_dev_trials_f exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_speakers_30/libri_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/results-2023-11-04-11-11-17/ASV-libri_dev_enrolls-libri_dev_trials_f[0m
+run.pl: job failed, log is in exp/results-2023-11-04-11-11-17/ASV-libri_dev_enrolls-libri_dev_trials_f/log/ivector-plda-scoring.log

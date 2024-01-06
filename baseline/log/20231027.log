@@ -1,0 +1,253 @@
+nohup: 忽略输入
+[0;32m
+Stage 0: Downloading libri_dev set...[0m
+  Done
+[0;32m
+Stage 0: Downloading libri_test set...[0m
+  Done
+[0;32m
+Stage 0: Downloading vctk_dev set...[0m
+  Done
+[0;32m
+Stage 0: Downloading vctk_test set...[0m
+  Done
+[0;32m
+Stage 8: Making evaluation subsets...[0m
+utils/subset_data_dir.sh: reducing #utt from 2321 to 400
+utils/subset_data_dir.sh: reducing #utt from 2321 to 400
+utils/subset_data_dir.sh: reducing #utt from 2321 to 400
+utils/combine_data.sh data/libri_dev_trials_all data/libri_dev_trials_f data/libri_dev_trials_m
+dset:data/libri_dev_trials_all, first_src: data/libri_dev_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/libri_dev_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_dev_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_dev_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_dev_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_dev_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 400 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_trials_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12253 to 300
+utils/subset_data_dir.sh: reducing #utt from 12253 to 300
+utils/subset_data_dir.sh: reducing #utt from 12253 to 300
+utils/combine_data.sh data/vctk_dev_trials_f_all data/vctk_dev_trials_f data/vctk_dev_trials_f_common
+dset:data/vctk_dev_trials_f_all, first_src: data/vctk_dev_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/vctk_dev_trials_f_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_f_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_f_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_f_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_f_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 300 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_f_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12253 to 300
+utils/subset_data_dir.sh: reducing #utt from 12253 to 300
+utils/combine_data.sh data/vctk_dev_trials_m_all data/vctk_dev_trials_m data/vctk_dev_trials_m_common
+dset:data/vctk_dev_trials_m_all, first_src: data/vctk_dev_trials_m
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/vctk_dev_trials_m_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_m_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_m_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_m_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_m_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 300 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_m_all/.backup
+utils/combine_data.sh data/vctk_dev_trials_all data/vctk_dev_trials_f_all data/vctk_dev_trials_m_all
+dset:data/vctk_dev_trials_all, first_src: data/vctk_dev_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/vctk_dev_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_dev_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 300 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_dev_trials_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 2620 to 400
+utils/subset_data_dir.sh: reducing #utt from 2620 to 400
+utils/subset_data_dir.sh: reducing #utt from 2620 to 400
+utils/combine_data.sh data/libri_test_trials_all data/libri_test_trials_f data/libri_test_trials_m
+dset:data/libri_test_trials_all, first_src: data/libri_test_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/libri_test_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_test_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_test_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_test_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/libri_test_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 400 utterances.
+fix_data_dir.sh: old files are kept in data/libri_test_trials_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12350 to 300
+utils/subset_data_dir.sh: reducing #utt from 12350 to 300
+utils/subset_data_dir.sh: reducing #utt from 12350 to 300
+utils/combine_data.sh data/vctk_test_trials_f_all data/vctk_test_trials_f data/vctk_test_trials_f_common
+dset:data/vctk_test_trials_f_all, first_src: data/vctk_test_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/vctk_test_trials_f_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_f_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_f_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_f_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_f_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 300 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_f_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12350 to 300
+utils/subset_data_dir.sh: reducing #utt from 12350 to 300
+utils/combine_data.sh data/vctk_test_trials_m_all data/vctk_test_trials_m data/vctk_test_trials_m_common
+dset:data/vctk_test_trials_m_all, first_src: data/vctk_test_trials_m
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/vctk_test_trials_m_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_m_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_m_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_m_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_m_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 300 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_m_all/.backup
+utils/combine_data.sh data/vctk_test_trials_all data/vctk_test_trials_f_all data/vctk_test_trials_m_all
+dset:data/vctk_test_trials_all, first_src: data/vctk_test_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file data/vctk_test_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file data/vctk_test_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 300 utterances.
+fix_data_dir.sh: old files are kept in data/vctk_test_trials_all/.backup
+[0;32m
+Stage 9: Anonymizing evaluation datasets...[0m
+anon_level = spk
+libri_dev_enrolls
+[0;32m
+Stage 9: Anonymizing using x-vectors and neural wavform models...[0m
+[0;31m
+Stage a.0: Extracting xvectors for libri_dev_enrolls.[0m
+steps/make_mfcc.sh --write-utt2num-frames true --mfcc-config conf/mfcc.conf --nj 12 --cmd run.pl data/libri_dev_enrolls exp/make_mfcc /data/yh/Voice-Privacy-Challenge-2020/baseline/mfcc
+utils/validate_data_dir.sh: Successfully validated data-directory data/libri_dev_enrolls
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+steps/make_mfcc.sh: Succeeded creating MFCC features for libri_dev_enrolls
+fix_data_dir.sh: kept all 400 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_enrolls/.backup
+sid/compute_vad_decision.sh --nj 12 --cmd run.pl data/libri_dev_enrolls exp/make_vad /data/yh/Voice-Privacy-Challenge-2020/baseline/mfcc
+Created VAD output for libri_dev_enrolls
+fix_data_dir.sh: kept all 400 utterances.
+fix_data_dir.sh: old files are kept in data/libri_dev_enrolls/.backup
+sid/nnet3/xvector/extract_xvectors.sh --cmd run.pl --nj 12 exp/models/2_xvect_extr/exp/xvector_nnet_1a data/libri_dev_enrolls exp/models/2_xvect_extr/exp/xvector_nnet_1a/anon/xvectors_libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/2_xvect_extr/exp/xvector_nnet_1a/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for data/libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m
+Stage a.1: Generating pseudo-speakers for libri_dev_enrolls.[0m
+Computing PLDA affinity scores of each source speaker to each pool speaker.
+['local/anon/gen_pseudo_xvecs.py', 'data/libri_dev_enrolls', 'data/libritts_train_other_500', 'exp/models/2_xvect_extr/exp/xvector_nnet_1a/anon/xvectors_libri_dev_enrolls/spk_pool_scores', 'exp/models/2_xvect_extr/exp/xvector_nnet_1a/anon', 'exp/models/2_xvect_extr/exp/xvector_nnet_1a/anon/xvectors_libri_dev_enrolls/pseudo_xvecs', 'spk', 'false', 'farthest', '0']
+**Same gender speakers will be selected.**
+Randomization level: spk
+Proximity: farthest
+Reading source spk2gender.
+Reading source spk2utt.
+Reading pool spk2gender.
+Traceback (most recent call last):
+  File "local/anon/gen_pseudo_xvecs.py", line 71, in <module>
+    with open(pool_spk2gender_file) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'data/libritts_train_other_500/spk2gender'

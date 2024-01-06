@@ -1,0 +1,473 @@
+[0;32m
+Stage 11: Evaluate datasets using speaker verification...[0m
+[0;31m**ASV: libri_dev_trials_f, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_1/data/libri_dev_enrolls/spk2utt
+[0;31m  compute x-vect: libri_dev_enrolls[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 6 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_dev_enrolls exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_utt_list_1/data/libri_dev_trials_f/spk2utt
+[0;31m  compute x-vect: libri_dev_trials_f[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_dev_trials_f exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-libri_dev_enrolls-libri_dev_trials_f[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Cllr (min/act): 0.000/17.221
+     ROCCH-EER: 0.000%
+
+linkability: 0.779070
+
+
+libri_dev_enrolls-libri_dev_trials_f
+Population: 0.721 bit
+Individual: 1.654 (B)
+
+[0;31m**ASV: libri_dev_trials_f, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/libri_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/libri_dev_trials_f_anon/spk2utt
+[0;31m  compute x-vect: libri_dev_trials_f_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_dev_trials_f_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-libri_dev_enrolls-libri_dev_trials_f_anon[0m
+EER: 20.93%
+minDCF(p-target=0.01): 0.9535
+minDCF(p-target=0.001): 0.9535
+Cllr (min/act): 0.645/213.984
+     ROCCH-EER: 18.343%
+
+linkability: 0.379778
+
+
+libri_dev_enrolls-libri_dev_trials_f_anon
+Population: 0.244 bit
+Individual: 0.834 (A)
+
+[0;31m**ASV: libri_dev_trials_f, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/libri_dev_enrolls_anon/spk2utt
+[0;31m  compute x-vect: libri_dev_enrolls_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 6 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_dev_enrolls_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_utt_list_1/data/libri_dev_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-libri_dev_enrolls_anon-libri_dev_trials_f_anon[0m
+EER: 30.23%
+minDCF(p-target=0.01): 0.4419
+minDCF(p-target=0.001): 0.4419
+Cllr (min/act): 0.602/14.519
+     ROCCH-EER: 25.220%
+
+linkability: 0.403939
+
+
+libri_dev_enrolls_anon-libri_dev_trials_f_anon
+Population: 0.282 bit
+Individual: 1.087 (B)
+
+[0;31m**ASV: libri_dev_trials_m, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_1/data/libri_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/libri_dev_trials_m/spk2utt
+[0;31m  compute x-vect: libri_dev_trials_m[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_dev_trials_m exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-libri_dev_enrolls-libri_dev_trials_m[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Cllr (min/act): 0.000/32.616
+     ROCCH-EER: 0.000%
+
+linkability: 0.500000
+
+
+libri_dev_enrolls-libri_dev_trials_m
+Population: 0.721 bit
+Individual: 1.419 (B)
+
+[0;31m**ASV: libri_dev_trials_m, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/libri_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/libri_dev_trials_m_anon/spk2utt
+[0;31m  compute x-vect: libri_dev_trials_m_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_dev_trials_m_anon exp/models/asv_eval/xvect_01709_1/xvect_libri_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-libri_dev_enrolls-libri_dev_trials_m_anon[0m
+EER: 44%
+minDCF(p-target=0.01): 0.8400
+minDCF(p-target=0.001): 0.8400
+Cllr (min/act): 0.837/130.157
+     ROCCH-EER: 36.000%
+
+linkability: 0.039298
+
+
+libri_dev_enrolls-libri_dev_trials_m_anon
+Population: 0.113 bit
+Individual: 0.602 (A)
+
+[0;31m**ASV: libri_dev_trials_m, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/libri_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_1/data/libri_dev_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-libri_dev_enrolls_anon-libri_dev_trials_m_anon[0m
+EER: 88%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 1.000/52.601
+     ROCCH-EER: 50.000%
+
+linkability: 0.240000
+
+
+libri_dev_enrolls_anon-libri_dev_trials_m_anon
+Population: 0 bit
+Individual: 0.004 (A)
+
+[0;31m**ASV: vctk_dev_trials_f, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+[0;31m  compute x-vect: vctk_dev_enrolls[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_enrolls exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_f/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_f[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_f exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_f[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Cllr (min/act): 0.000/0.006
+     ROCCH-EER: 0.000%
+
+linkability: 0.000000
+
+
+vctk_dev_enrolls-vctk_dev_trials_f
+Population: 0.721 bit
+Individual: 1.369 (B)
+
+[0;31m**ASV: vctk_dev_trials_f, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_f_anon/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_f_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_f_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_f_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_f_anon[0m
+EER: 12.5%
+minDCF(p-target=0.01): 0.2500
+minDCF(p-target=0.001): 0.2500
+Cllr (min/act): 0.143/46.897
+     ROCCH-EER: 6.667%
+
+linkability: 0.000000
+
+
+vctk_dev_enrolls-vctk_dev_trials_f_anon
+Population: 0.617 bit
+Individual: 1.252 (B)
+
+[0;31m**ASV: vctk_dev_trials_f, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls_anon/spk2utt
+[0;31m  compute x-vect: vctk_dev_enrolls_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_enrolls_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_enrolls_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_anon[0m
+EER: 56.25%
+minDCF(p-target=0.01): 0.8125
+minDCF(p-target=0.001): 0.8125
+Cllr (min/act): 0.889/23.336
+     ROCCH-EER: 41.985%
+
+linkability: 0.000000
+
+
+vctk_dev_enrolls_anon-vctk_dev_trials_f_anon
+Population: 0.079 bit
+Individual: 0.740 (A)
+
+[0;31m**ASV: vctk_dev_trials_m, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_m/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_m[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_m exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_m
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_m[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Cllr (min/act): 0.000/0.601
+     ROCCH-EER: 0.000%
+
+linkability: 0.000000
+
+
+vctk_dev_enrolls-vctk_dev_trials_m
+Population: 0.721 bit
+Individual: 1.426 (B)
+
+[0;31m**ASV: vctk_dev_trials_m, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_m_anon/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_m_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_m_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_m_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_m_anon[0m
+EER: 73.33%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 1.000/114.167
+     ROCCH-EER: 50.000%
+
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 31, in <module>
+    draw_scores(matedScores, nonMatedScores, Dsys, D, bin_centers, bin_edges, output_file)
+  File "/data/yh/Voice-Privacy-Challenge-2020/anonymization_metrics/performance.py", line 168, in draw_scores
+    ax.axvline(bin_centers[index[0][0]], color='k', linestyle='--')
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+vctk_dev_enrolls-vctk_dev_trials_m_anon
+Population: 0 bit
+Individual: 0.011 (A)
+
+[0;31m**ASV: vctk_dev_trials_m, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_anon[0m
+EER: 13.33%
+minDCF(p-target=0.01): 0.6000
+minDCF(p-target=0.001): 0.6000
+Cllr (min/act): 0.168/2.407
+     ROCCH-EER: 6.154%
+
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 31, in <module>
+    draw_scores(matedScores, nonMatedScores, Dsys, D, bin_centers, bin_edges, output_file)
+  File "/data/yh/Voice-Privacy-Challenge-2020/anonymization_metrics/performance.py", line 168, in draw_scores
+    ax.axvline(bin_centers[index[0][0]], color='k', linestyle='--')
+IndexError: index 0 is out of bounds for axis 0 with size 0
+
+vctk_dev_enrolls_anon-vctk_dev_trials_m_anon
+Population: 0.594 bit
+Individual: 1.158 (B)
+
+[0;31m**ASV: vctk_dev_trials_f_common, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_f_common/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_f_common[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_f_common exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_f_common
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_f_common[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Cllr (min/act): 0.000/2.029
+     ROCCH-EER: 0.000%
+
+linkability: 0.478261
+
+
+vctk_dev_enrolls-vctk_dev_trials_f_common
+Population: 0.721 bit
+Individual: 1.587 (B)
+
+[0;31m**ASV: vctk_dev_trials_f_common, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_f_common_anon/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_f_common_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_f_common_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_f_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_f_common_anon[0m
+EER: 34.78%
+minDCF(p-target=0.01): 0.4348
+minDCF(p-target=0.001): 0.4348
+Cllr (min/act): 0.606/75.438
+     ROCCH-EER: 26.860%
+
+linkability: 0.191858
+
+
+vctk_dev_enrolls-vctk_dev_trials_f_common_anon
+Population: 0.281 bit
+Individual: 1.353 (B)
+
+[0;31m**ASV: vctk_dev_trials_f_common, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_f_common_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_common_anon[0m
+EER: 56.52%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 0.982/48.364
+     ROCCH-EER: 48.032%
+
+linkability: 0.029168
+
+
+vctk_dev_enrolls_anon-vctk_dev_trials_f_common_anon
+Population: 0.013 bit
+Individual: 0.206 (A)
+
+[0;31m**ASV: vctk_dev_trials_m_common, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_m_common/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_m_common[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_m_common exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_m_common
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_m_common[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Cllr (min/act): 0.000/0.046
+     ROCCH-EER: 0.000%
+
+linkability: 0.500000
+
+
+vctk_dev_enrolls-vctk_dev_trials_m_common
+Population: 0.721 bit
+Individual: 1.587 (B)
+
+[0;31m**ASV: vctk_dev_trials_m_common, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_m_common_anon/spk2utt
+[0;31m  compute x-vect: vctk_dev_trials_m_common_anon[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 3 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/vctk_dev_trials_m_common_anon exp/models/asv_eval/xvect_01709_1/xvect_vctk_dev_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/vctk_dev_trials_m_common_anon
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls-vctk_dev_trials_m_common_anon[0m
+EER: 86.96%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 1.000/122.376
+     ROCCH-EER: 50.000%
+
+linkability: 0.225490
+
+
+vctk_dev_enrolls-vctk_dev_trials_m_common_anon
+Population: 0 bit
+Individual: 0.007 (A)
+
+[0;31m**ASV: vctk_dev_trials_m_common, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_1/data/vctk_dev_trials_m_common_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_common_anon[0m
+EER: 26.09%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Cllr (min/act): 0.587/6.070
+     ROCCH-EER: 23.041%
+
+linkability: 0.180461
+
+
+vctk_dev_enrolls_anon-vctk_dev_trials_m_common_anon
+Population: 0.292 bit
+Individual: 1.136 (B)
+
+[0;31m**ASV: libri_test_trials_f, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_1/data/libri_test_enrolls/spk2utt
+[0;31m  compute x-vect: libri_test_enrolls[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 4 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_test_enrolls exp/models/asv_eval/xvect_01709_1/xvect_libri_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_test_enrolls
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+spk2utt: corpora/test_utt_list_1/data/libri_test_trials_f/spk2utt
+[0;31m  compute x-vect: libri_test_trials_f[0m
+sid/nnet3/xvector/extract_xvectors.sh --nj 2 --cmd run.pl exp/models/asv_eval/xvect_01709_1 corpora/test_utt_list_1/data/libri_test_trials_f exp/models/asv_eval/xvect_01709_1/xvect_libri_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: using exp/models/asv_eval/xvect_01709_1/extract.config to extract xvectors
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors for corpora/test_utt_list_1/data/libri_test_trials_f
+sid/nnet3/xvector/extract_xvectors.sh: extracting xvectors from nnet
+sid/nnet3/xvector/extract_xvectors.sh: combining xvectors across jobs
+sid/nnet3/xvector/extract_xvectors.sh: computing mean of xvectors for each speaker
+[0;31m  ASV scoring: exp/result/results-2023-11-15-09-31-46/ASV-libri_test_enrolls-libri_test_trials_f[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Cllr (min/act): 0.000/4.414
+     ROCCH-EER: 0.000%
+
+linkability: 0.500000
+
+
+libri_test_enrolls-libri_test_trials_f
+Population: 0.721 bit
+Individual: 1.433 (B)
+
+[0;31m**ASV: libri_test_trials_f, enroll - original, trial - anonymized**[0m
+[0;31m  compute MFCC: libri_test_trials_f_anon[0m
+steps/make_mfcc.sh --nj 2 --cmd run.pl --write-utt2num-frames true corpora/test_utt_list_1/data/libri_test_trials_f_anon
+steps/make_mfcc.sh: moving corpora/test_utt_list_1/data/libri_test_trials_f_anon/feats.scp to corpora/test_utt_list_1/data/libri_test_trials_f_anon/.backup
+utils/validate_data_dir.sh: Error: in corpora/test_utt_list_1/data/libri_test_trials_f_anon, utterance-ids extracted from utt2spk and utt2dur file
+utils/validate_data_dir.sh: differ, partial diff is:
+--- /tmp/kaldi.duBX/utts	2023-11-15 09:35:02.059906428 +0800
++++ /tmp/kaldi.duBX/utts.utt2dur	2023-11-15 09:35:02.111906685 +0800
+@@ -18,5 +18,2 @@
+ 121-127105-0026
+-121-127105-0027
+-121-127105-0028
+...
+[Lengths are /tmp/kaldi.duBX/utts=49 versus /tmp/kaldi.duBX/utts.utt2dur=23]

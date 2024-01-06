@@ -26,8 +26,10 @@ Dsys, D, bin_centers, bin_edges  = linkability(matedScores, nonMatedScores, args
 
 if args.draw_scores:
   output_file= "linkability_"+args.score_file[0]
+  print(f"output_file {output_file}")
   if args.output_file is not None:
     output_file = args.output_file[0]
+    print(f"args.output_file {output_file}")
   draw_scores(matedScores, nonMatedScores, Dsys, D, bin_centers, bin_edges, output_file)
 
 

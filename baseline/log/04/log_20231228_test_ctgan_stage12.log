@@ -1,0 +1,316 @@
+[0;32m
+Stage 11: Evaluate datasets using speaker verification...[0m
+[0;31m**ASV: vctk_dev_trials_f, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_f/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_dev_enrolls-vctk_dev_trials_f[0m
+EER: 5.882%
+minDCF(p-target=0.01): 0.0588
+minDCF(p-target=0.001): 0.0588
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_f, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_dev_enrolls-vctk_dev_trials_f_anon[0m
+EER: 35.29%
+minDCF(p-target=0.01): 0.5882
+minDCF(p-target=0.001): 0.5882
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_f, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_f_anon[0m
+EER: 35.29%
+minDCF(p-target=0.01): 0.4706
+minDCF(p-target=0.001): 0.4706
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_m, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_m/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_dev_enrolls-vctk_dev_trials_m[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_m, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_dev_enrolls-vctk_dev_trials_m_anon[0m
+EER: 70%
+minDCF(p-target=0.01): 1.0000
+minDCF(p-target=0.001): 1.0000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_dev_trials_m, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_dev_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_dev_enrolls_anon-vctk_dev_trials_m_anon[0m
+EER: 10%
+minDCF(p-target=0.01): 0.1000
+minDCF(p-target=0.001): 0.1000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 1 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_test_trials_f, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_f/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_test_enrolls-vctk_test_trials_f[0m
+EER: 4.255%
+minDCF(p-target=0.01): 0.0851
+minDCF(p-target=0.001): 0.0851
+Cllr (min/act): 0.072/4.720
+     ROCCH-EER: 3.030%
+
+linkability: 0.564052
+
+[0;31m**ASV: vctk_test_trials_f, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_test_enrolls-vctk_test_trials_f_anon[0m
+EER: 19.15%
+minDCF(p-target=0.01): 0.3404
+minDCF(p-target=0.001): 0.3404
+Cllr (min/act): 0.406/27.534
+     ROCCH-EER: 16.354%
+
+linkability: 0.291795
+
+[0;31m**ASV: vctk_test_trials_f, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_f_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_test_enrolls_anon-vctk_test_trials_f_anon[0m
+EER: 6.383%
+minDCF(p-target=0.01): 0.1489
+minDCF(p-target=0.001): 0.1489
+Cllr (min/act): 0.142/1.078
+     ROCCH-EER: 4.361%
+
+linkability: 0.411218
+
+[0;31m**ASV: vctk_test_trials_m, enroll - original, trial - original**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_m/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_test_enrolls-vctk_test_trials_m[0m
+EER: 0%
+minDCF(p-target=0.01): 0.0000
+minDCF(p-target=0.001): 0.0000
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_test_trials_m, enroll - original, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_test_enrolls-vctk_test_trials_m_anon[0m
+EER: 11.11%
+minDCF(p-target=0.01): 0.1852
+minDCF(p-target=0.001): 0.1852
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+[0;31m**ASV: vctk_test_trials_m, enroll - anonymized, trial - anonymized**[0m
+spk2utt: corpora/test_utt_list_2/data/vctk_test_enrolls_anon/spk2utt
+spk2utt: corpora/test_utt_list_2/data/vctk_test_trials_m_anon/spk2utt
+[0;31m  ASV scoring: exp/result/results-2023-12-28-17-15-04/ASV-vctk_test_enrolls_anon-vctk_test_trials_m_anon[0m
+EER: 18.52%
+minDCF(p-target=0.01): 0.3704
+minDCF(p-target=0.001): 0.3704
+Traceback (most recent call last):
+  File "../cllr/compute_cllr.py", line 18, in <module>
+    tar = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+Traceback (most recent call last):
+  File "local/scoring/linkability/compute_linkability.py", line 22, in <module>
+    matedScores = scr.values[key.values == True]
+IndexError: boolean index did not match indexed array along dimension 0; dimension is 2 but corresponding boolean dimension is 3
+pwd:/data/yh/Voice-Privacy-Challenge-2020/baseline
+[0;32m
+Stage 12: Making ASR evaluation subsets...[0m
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_dev_asr corpora/test_utt_list_2/data/vctk_dev_trials_f_all corpora/test_utt_list_2/data/vctk_dev_trials_m_all
+dset:corpora/test_utt_list_2/data/vctk_dev_asr, first_src: corpora/test_utt_list_2/data/vctk_dev_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 260 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_asr/.backup
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_dev_asr_anon corpora/test_utt_list_2/data/vctk_dev_trials_f_all_anon corpora/test_utt_list_2/data/vctk_dev_trials_m_all_anon
+dset:corpora/test_utt_list_2/data/vctk_dev_asr_anon, first_src: corpora/test_utt_list_2/data/vctk_dev_trials_f_all_anon
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 260 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_asr_anon/.backup
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_test_asr corpora/test_utt_list_2/data/vctk_test_trials_f_all corpora/test_utt_list_2/data/vctk_test_trials_m_all
+dset:corpora/test_utt_list_2/data/vctk_test_asr, first_src: corpora/test_utt_list_2/data/vctk_test_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 298 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_asr/.backup
+utils/combine_data.sh corpora/test_utt_list_2/data/vctk_test_asr_anon corpora/test_utt_list_2/data/vctk_test_trials_f_all_anon corpora/test_utt_list_2/data/vctk_test_trials_m_all_anon
+dset:corpora/test_utt_list_2/data/vctk_test_asr_anon, first_src: corpora/test_utt_list_2/data/vctk_test_trials_f_all_anon
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+fix_data_dir.sh: kept all 298 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_asr_anon/.backup
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+[0;31m  compute MFCC: vctk_dev_asr[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_dev_asr to corpora/test_utt_list_2/data/vctk_dev_asr_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_asr_hires
+steps/make_mfcc.sh --nj 6 --cmd run.pl --mfcc-config conf/mfcc_hires.conf corpora/test_utt_list_2/data/vctk_dev_asr_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_asr_hires
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_asr_hires
+steps/compute_cmvn_stats.sh corpora/test_utt_list_2/data/vctk_dev_asr_hires
+Succeeded creating CMVN stats for vctk_dev_asr_hires
+fix_data_dir.sh: kept all 260 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_asr_hires/.backup
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+[0;31m  compute MFCC: vctk_dev_asr_anon[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_dev_asr_anon to corpora/test_utt_list_2/data/vctk_dev_asr_anon_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_asr_anon_hires
+steps/make_mfcc.sh --nj 6 --cmd run.pl --mfcc-config conf/mfcc_hires.conf corpora/test_utt_list_2/data/vctk_dev_asr_anon_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_asr_anon_hires
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_dev_asr_anon_hires
+steps/compute_cmvn_stats.sh corpora/test_utt_list_2/data/vctk_dev_asr_anon_hires
+Succeeded creating CMVN stats for vctk_dev_asr_anon_hires
+fix_data_dir.sh: kept all 260 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_dev_asr_anon_hires/.backup
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+[0;31m  compute MFCC: vctk_test_asr[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_test_asr to corpora/test_utt_list_2/data/vctk_test_asr_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_asr_hires
+steps/make_mfcc.sh --nj 6 --cmd run.pl --mfcc-config conf/mfcc_hires.conf corpora/test_utt_list_2/data/vctk_test_asr_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_asr_hires
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_asr_hires
+steps/compute_cmvn_stats.sh corpora/test_utt_list_2/data/vctk_test_asr_hires
+Succeeded creating CMVN stats for vctk_test_asr_hires
+fix_data_dir.sh: kept all 298 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_asr_hires/.backup
+[0;32m
+Stage 13: Performing intelligibility assessment using ASR decoding on vctk...[0m
+[0;31m  compute MFCC: vctk_test_asr_anon[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_test_asr_anon to corpora/test_utt_list_2/data/vctk_test_asr_anon_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_asr_anon_hires
+steps/make_mfcc.sh --nj 6 --cmd run.pl --mfcc-config conf/mfcc_hires.conf corpora/test_utt_list_2/data/vctk_test_asr_anon_hires
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_asr_anon_hires
+steps/make_mfcc.sh: [info]: no segments file exists: assuming wav.scp indexed by utterance.
+test1
+test2
+test3
+steps/make_mfcc.sh: Succeeded creating MFCC features for vctk_test_asr_anon_hires
+steps/compute_cmvn_stats.sh corpora/test_utt_list_2/data/vctk_test_asr_anon_hires
+Succeeded creating CMVN stats for vctk_test_asr_anon_hires
+fix_data_dir.sh: kept all 298 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_utt_list_2/data/vctk_test_asr_anon_hires/.backup
+[0;32m
+Stage 14: Collecting results[0m
+ASV-vctk_dev_enrolls-vctk_dev_trials_f
+  EER: 5.882%

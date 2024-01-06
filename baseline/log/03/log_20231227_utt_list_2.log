@@ -1,0 +1,59 @@
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/libri_dev_enrolls to corpora/test_utt_list_2/data/libri_dev_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/libri_dev_enrolls_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/libri_dev_trials_f to corpora/test_utt_list_2/data/libri_dev_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/libri_dev_trials_f_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/libri_dev_trials_m to corpora/test_utt_list_2/data/libri_dev_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/libri_dev_trials_m_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_dev_enrolls to corpora/test_utt_list_2/data/vctk_dev_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_enrolls_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_dev_trials_f_all to corpora/test_utt_list_2/data/vctk_dev_trials_f_all_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_trials_f_all_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_dev_trials_m_all to corpora/test_utt_list_2/data/vctk_dev_trials_m_all_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_dev_trials_m_all_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/libri_test_enrolls to corpora/test_utt_list_2/data/libri_test_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/libri_test_enrolls_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/libri_test_trials_f to corpora/test_utt_list_2/data/libri_test_trials_f_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/libri_test_trials_f_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/libri_test_trials_m to corpora/test_utt_list_2/data/libri_test_trials_m_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/libri_test_trials_m_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_test_enrolls to corpora/test_utt_list_2/data/vctk_test_enrolls_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_enrolls_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_test_trials_f_all to corpora/test_utt_list_2/data/vctk_test_trials_f_all_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_trials_f_all_anon
+[0;31m
+Stage a.7: Creating new data directories corresponding to anonymization.[0m
+utils/copy_data_dir.sh: copied data from corpora/test_utt_list_2/data/vctk_test_trials_m_all to corpora/test_utt_list_2/data/vctk_test_trials_m_all_anon
+utils/validate_data_dir.sh: Successfully validated data-directory corpora/test_utt_list_2/data/vctk_test_trials_m_all_anon
+create new data directories done.\n
+[0;32m
+Stage 10: Making VCTK anonymized evaluation subsets...[0m
+utils/subset_data_dir.sh: reducing #utt from 131 to 62
+utils/subset_data_dir.sh: reducing #utt from 131 to 69
+utils/subset_data_dir.sh: reducing #utt from 129 to 61
+utils/subset_data_dir.sh: reducing #utt from 129 to 68
+utils/subset_data_dir.sh: reducing #utt from 151 to 81
+utils/subset_data_dir.sh: reducing #utt from 151 to 70
+utils/subset_data_dir.sh: reducing #utt from 147 to 76
+utils/subset_data_dir.sh: reducing #utt from 147 to 71

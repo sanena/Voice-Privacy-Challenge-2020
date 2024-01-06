@@ -17,17 +17,19 @@ ivec_extr=$model/extractor
 graph_dir=$model/graph_tgsmall
 large_lang=$model/lang_test_tglarge
 small_lang=$model/lang_test_tgsmall
-data=data/${dset}_hires
+# data_dir=corpora/test_utt_list_2/data
+data_dir=corpora/data/utt_list
+data=$data_dir/${dset}_hires
 ivect=$ivec_extr/ivect_$dset
 
-spk2utt=data/$dset/spk2utt
+spk2utt=$data_dir/$dset/spk2utt
 [ ! -f $spk2utt ] && echo "File $spk2utt does not exist" && exit 1
 num_spk=$(wc -l < $spk2utt)
 [ $nj -gt $num_spk ] && nj=$num_spk
 
 if [ ! -f $data/.done_mfcc ]; then
   printf "${RED}  compute MFCC: $dset${NC}\n"
-  utils/copy_data_dir.sh data/$dset $data || exit 1
+  utils/copy_data_dir.sh $data_dir/$dset $data || exit 1
   steps/make_mfcc.sh --nj $nj --cmd "$train_cmd" --mfcc-config conf/mfcc_hires.conf $data || exit 1
   steps/compute_cmvn_stats.sh $data || exit 1
   utils/fix_data_dir.sh $data || exit 1

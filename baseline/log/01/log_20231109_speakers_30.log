@@ -1,0 +1,204 @@
+nohup: 忽略输入
+[0;32m
+Stage 8: Making evaluation subsets...[0m
+utils/subset_data_dir.sh: reducing #utt from 2321 to 65
+utils/subset_data_dir.sh: reducing #utt from 2321 to 65
+utils/subset_data_dir.sh: reducing #utt from 2321 to 65
+utils/combine_data.sh corpora/test_speakers_30/data/libri_dev_trials_all corpora/test_speakers_30/data/libri_dev_trials_f corpora/test_speakers_30/data/libri_dev_trials_m
+dset:corpora/test_speakers_30/data/libri_dev_trials_all, first_src: corpora/test_speakers_30/data/libri_dev_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_dev_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_dev_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_dev_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_dev_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_dev_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 65 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/libri_dev_trials_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12253 to 411
+utils/subset_data_dir.sh: reducing #utt from 12253 to 411
+utils/subset_data_dir.sh: reducing #utt from 12253 to 411
+utils/combine_data.sh corpora/test_speakers_30/data/vctk_dev_trials_f_all corpora/test_speakers_30/data/vctk_dev_trials_f corpora/test_speakers_30/data/vctk_dev_trials_f_common
+dset:corpora/test_speakers_30/data/vctk_dev_trials_f_all, first_src: corpora/test_speakers_30/data/vctk_dev_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_f_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_f_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_f_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_f_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_f_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 411 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/vctk_dev_trials_f_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12253 to 411
+utils/subset_data_dir.sh: reducing #utt from 12253 to 411
+utils/combine_data.sh corpora/test_speakers_30/data/vctk_dev_trials_m_all corpora/test_speakers_30/data/vctk_dev_trials_m corpora/test_speakers_30/data/vctk_dev_trials_m_common
+dset:corpora/test_speakers_30/data/vctk_dev_trials_m_all, first_src: corpora/test_speakers_30/data/vctk_dev_trials_m
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_m_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_m_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_m_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_m_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_m_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 411 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/vctk_dev_trials_m_all/.backup
+utils/combine_data.sh corpora/test_speakers_30/data/vctk_dev_trials_all corpora/test_speakers_30/data/vctk_dev_trials_f_all corpora/test_speakers_30/data/vctk_dev_trials_m_all
+dset:corpora/test_speakers_30/data/vctk_dev_trials_all, first_src: corpora/test_speakers_30/data/vctk_dev_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_dev_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 411 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/vctk_dev_trials_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 2620 to 71
+utils/subset_data_dir.sh: reducing #utt from 2620 to 71
+utils/subset_data_dir.sh: reducing #utt from 2620 to 71
+utils/combine_data.sh corpora/test_speakers_30/data/libri_test_trials_all corpora/test_speakers_30/data/libri_test_trials_f corpora/test_speakers_30/data/libri_test_trials_m
+dset:corpora/test_speakers_30/data/libri_test_trials_all, first_src: corpora/test_speakers_30/data/libri_test_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_test_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_test_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_test_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_test_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/libri_test_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 71 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/libri_test_trials_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12350 to 481
+utils/subset_data_dir.sh: reducing #utt from 12350 to 481
+utils/subset_data_dir.sh: reducing #utt from 12350 to 481
+utils/combine_data.sh corpora/test_speakers_30/data/vctk_test_trials_f_all corpora/test_speakers_30/data/vctk_test_trials_f corpora/test_speakers_30/data/vctk_test_trials_f_common
+dset:corpora/test_speakers_30/data/vctk_test_trials_f_all, first_src: corpora/test_speakers_30/data/vctk_test_trials_f
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_f_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_f_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_f_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_f_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_f_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 481 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/vctk_test_trials_f_all/.backup
+utils/subset_data_dir.sh: reducing #utt from 12350 to 481
+utils/subset_data_dir.sh: reducing #utt from 12350 to 481
+utils/combine_data.sh corpora/test_speakers_30/data/vctk_test_trials_m_all corpora/test_speakers_30/data/vctk_test_trials_m corpora/test_speakers_30/data/vctk_test_trials_m_common
+dset:corpora/test_speakers_30/data/vctk_test_trials_m_all, first_src: corpora/test_speakers_30/data/vctk_test_trials_m
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_m_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_m_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_m_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_m_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_m_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 481 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/vctk_test_trials_m_all/.backup
+utils/combine_data.sh corpora/test_speakers_30/data/vctk_test_trials_all corpora/test_speakers_30/data/vctk_test_trials_f_all corpora/test_speakers_30/data/vctk_test_trials_m_all
+dset:corpora/test_speakers_30/data/vctk_test_trials_all, first_src: corpora/test_speakers_30/data/vctk_test_trials_f_all
+utils/combine_data.sh [info]: not combining utt2uniq as it does not exist
+utils/combine_data.sh [info]: not combining segments as it does not exist
+utils/combine_data.sh: combined utt2spk
+utils/combine_data.sh [info]: not combining utt2lang as it does not exist
+utils/combine_data.sh: combined utt2dur
+utils/combine_data.sh [info]: not combining utt2num_frames as it does not exist
+utils/combine_data.sh [info]: not combining reco2dur as it does not exist
+utils/combine_data.sh [info]: not combining feats.scp as it does not exist
+utils/combine_data.sh: combined text
+utils/combine_data.sh [info]: not combining cmvn.scp as it does not exist
+utils/combine_data.sh [info]: not combining vad.scp as it does not exist
+utils/combine_data.sh [info]: not combining reco2file_and_channel as it does not exist
+utils/combine_data.sh: combined wav.scp
+utils/combine_data.sh: combined spk2gender
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_all/utt2spk is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_all/text is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_all/wav.scp is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_all/spk2gender is not in sorted order or not unique, sorting it
+utils/fix_data_dir.sh: file corpora/test_speakers_30/data/vctk_test_trials_all/utt2dur is not in sorted order or not unique, sorting it
+fix_data_dir.sh: kept all 481 utterances.
+fix_data_dir.sh: old files are kept in corpora/test_speakers_30/data/vctk_test_trials_all/.backup
+done

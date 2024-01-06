@@ -27,7 +27,9 @@ for dset in $dsets; do
   expo=$ppg_dir
   mark=$expo/.done
   if [ ! -f $mark ]; then
-    data=data/${dset}_hires
+    # data=data/${dset}_hires
+    data=${dset}_hires
+    dset_name=$(echo $data_dir | awk -F'/' '{print $NF}')
     for name in $data/feats.scp $model_dir/$md_name; do
       [ ! -f $name ] && echo "File $name does not exist" && exit 1
     done
@@ -37,7 +39,7 @@ for dset in $dsets; do
     [ -d $expo ] && rm -r $expo
     mkdir -p $expo/log
     mkdir -p $expo/data
-    $cmd JOB=1:$nj $expo/log/ppg256_${dset}.JOB.log \
+    $cmd JOB=1:$nj $expo/log/ppg256_${dset_name}.JOB.log \
       nnet3-compute \
         --extra-left-context=0 --extra-right-context=0 \
         --extra-left-context-initial=-1 --extra-right-context-final=-1 \

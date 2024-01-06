@@ -35,7 +35,7 @@ corpora=corpora
 anoni_pool="libritts_train_other_500"
 
 printf -v results '%(%Y-%m-%d-%H-%M-%S)T' -1
-results=exp/results-$results
+results=exp/result/results-$results
 
 
 . utils/parse_options.sh || exit 1;
@@ -75,130 +75,136 @@ mc_coeff_trials=0.8                    # mc_coeff for trials
 #=========== end config ===========
 
 # Download datasets
-if [ $stage -le 0 ]; then
-  for dset in libri vctk; do
-    for suff in dev test; do
-      printf "${GREEN}\nStage 0: Downloading ${dset}_${suff} set...${NC}\n"
-      local/download_data.sh ${dset}_${suff} || exit 1;
-    done
-  done
-fi
+# if [ $stage -le 0 ]; then
+#   for dset in libri vctk; do
+#     for suff in dev test; do
+#       printf "${GREEN}\nStage 0: Downloading ${dset}_${suff} set...${NC}\n"
+#       local/download_data.sh ${dset}_${suff} || exit 1;
+#     done
+#   done
+# fi
 
 # Download pretrained models
-if [ $stage -le 1 ]; then
-  printf "${GREEN}\nStage 1: Downloading pretrained models...${NC}\n"
-  local/download_models.sh || exit 1;
-fi
+# if [ $stage -le 1 ]; then
+#   printf "${GREEN}\nStage 1: Downloading pretrained models...${NC}\n"
+#   local/download_models.sh || exit 1;
+# fi
 data_netcdf=$(realpath exp/am_nsf_data)   # directory where features for voice anonymization will be stored
 mkdir -p $data_netcdf || exit 1;
 
 if ! $mcadams; then
 
-  # Download  VoxCeleb-1,2 corpus for training anonymization system models
-  if $download_full && [[ $stage -le 2 ]]; then
-    printf "${GREEN}\nStage 2: In order to download VoxCeleb-1,2 corpus, please go to: http://www.robots.ox.ac.uk/~vgg/data/voxceleb/ ...${NC}\n"
-    sleep 10; 
-  fi
+#   # Download  VoxCeleb-1,2 corpus for training anonymization system models
+#   if $download_full && [[ $stage -le 2 ]]; then
+#     printf "${GREEN}\nStage 2: In order to download VoxCeleb-1,2 corpus, please go to: http://www.robots.ox.ac.uk/~vgg/data/voxceleb/ ...${NC}\n"
+#     sleep 10; 
+#   fi
 
-  # Download LibriSpeech data sets for training anonymization system (train-other-500, train-clean-100) 
-  if $download_full && [[ $stage -le 3 ]]; then
-    printf "${GREEN}\nStage 3: Downloading LibriSpeech data sets for training anonymization system (train-other-500, train-clean-100)...${NC}\n"
-    for part in train-clean-100 train-other-500; do
-      local/download_and_untar.sh $corpora $data_url_librispeech $part LibriSpeech || exit 1;
-    done
-  fi
+#   # Download LibriSpeech data sets for training anonymization system (train-other-500, train-clean-100) 
+#   if $download_full && [[ $stage -le 3 ]]; then
+#     printf "${GREEN}\nStage 3: Downloading LibriSpeech data sets for training anonymization system (train-other-500, train-clean-100)...${NC}\n"
+#     for part in train-clean-100 train-other-500; do
+#       local/download_and_untar.sh $corpora $data_url_librispeech $part LibriSpeech || exit 1;
+#     done
+#   fi
 
-  # Download LibriTTS data sets for training anonymization system (train-clean-100)
-  if $download_full && [[ $stage -le 4 ]]; then
-    printf "${GREEN}\nStage 4: Downloading LibriTTS data sets for training anonymization system (train-clean-100)...${NC}\n"
-    for part in train-clean-100; do
-      local/download_and_untar.sh $corpora $data_url_libritts $part LibriTTS || exit 1;
-    done
-  fi
+#   # Download LibriTTS data sets for training anonymization system (train-clean-100)
+#   if $download_full && [[ $stage -le 4 ]]; then
+#     printf "${GREEN}\nStage 4: Downloading LibriTTS data sets for training anonymization system (train-clean-100)...${NC}\n"
+#     for part in train-clean-100; do
+#       local/download_and_untar.sh $corpora $data_url_libritts $part LibriTTS || exit 1;
+#     done
+#   fi
    
-  # Download LibriTTS data sets for training anonymization system (train-other-500)
-  if [ $stage -le 5 ]; then
-    printf "${GREEN}\nStage 5: Downloading LibriTTS data sets for training anonymization system (train-other-500)...${NC}\n"
-    for part in train-other-500; do
-      local/download_and_untar.sh $corpora $data_url_libritts $part LibriTTS || exit 1;
-    done
-  fi
-
+#   # Download LibriTTS data sets for training anonymization system (train-other-500)
+#   if [ $stage -le 5 ]; then
+#     printf "${GREEN}\nStage 5: Downloading LibriTTS data sets for training anonymization system (train-other-500)...${NC}\n"
+#     for part in train-other-500; do
+#       local/download_and_untar.sh $corpora $data_url_libritts $part LibriTTS || exit 1;
+#     done
+#   fi
+ 
   libritts_corpus=$(realpath $corpora/LibriTTS)       # Directory for LibriTTS corpus 
   librispeech_corpus=$(realpath $corpora/LibriSpeech) # Directory for LibriSpeech corpus
+  data_dir=data
 
   # Extract xvectors from anonymization pool
-  if [ $stage -le 6 ]; then
-    # Prepare data for libritts-train-other-500
-    printf "${GREEN}\nStage 6: Prepare anonymization pool data...${NC}\n"
-    local/data_prep_libritts.sh ${libritts_corpus}/train-other-500 data/${anoni_pool} || exit 1;
-  fi
+  # if [ $stage -le 6 ]; then
+  #   # Prepare data for libritts-train-other-500
+  #   printf "${GREEN}\nStage 6: Prepare anonymization pool data...${NC}\n"
+  #   local/data_prep_libritts.sh ${libritts_corpus}/train-other-500 $data_dir/${anoni_pool} || exit 1;
+  # fi
     
-  if [ $stage -le 7 ]; then
-    printf "${GREEN}\nStage 7: Extracting xvectors for anonymization pool...${NC}\n"
-    local/featex/01_extract_xvectors.sh --nj $nj data/${anoni_pool} ${xvec_nnet_dir} \
-      ${anon_xvec_out_dir} || exit 1;
-  fi
+  # if [ $stage -le 7 ]; then
+  #   printf "${GREEN}\nStage 7: Extracting xvectors for anonymization pool...${NC}\n"
+  #   local/featex/01_extract_xvectors.sh --nj $nj $data_dir/${anoni_pool} ${xvec_nnet_dir} \
+  #     ${anon_xvec_out_dir} || exit 1;
+  # fi
 
 fi # ! $mcadams
 
+
+subdata=corpora/data/utt_list
 # Make evaluation data
-if [ $stage -le 8 ]; then
-  printf "${GREEN}\nStage 8: Making evaluation subsets...${NC}\n"
-  temp=$(mktemp)
-  for suff in dev test; do
-    for name in data/libri_$suff/{enrolls,trials_f,trials_m} \
-        data/vctk_$suff/{enrolls_mic2,trials_f_common_mic2,trials_f_mic2,trials_m_common_mic2,trials_m_mic2}; do
-      [ ! -f $name ] && echo "File $name does not exist" && exit 1
-    done
+# if [ $stage -le 8 ]; then
+#   printf "${GREEN}\nStage 8: Making evaluation subsets...${NC}\n"
+#   temp=$(mktemp)
+#   for suff in dev test; do
+#     for name in $subdata/libri_$suff/{enrolls,trials_f,trials_m} \
+#         $subdata/vctk_$suff/{enrolls_mic2,trials_f_common_mic2,trials_f_mic2,trials_m_common_mic2,trials_m_mic2}; do
+#       [ ! -f $name ] && echo "File $name does not exist" && exit 1
+#     done
 
-    dset=data/libri_$suff
-    utils/subset_data_dir.sh --utt-list $dset/enrolls $dset ${dset}_enrolls || exit 1
-    cp $dset/enrolls ${dset}_enrolls || exit 1
+#     # libri系列子数据集
+#     dset=$subdata/libri_$suff
+#     utils/subset_data_dir.sh --utt-list $dset/enrolls $dset ${dset}_enrolls || exit 1
+#     cp $dset/enrolls ${dset}_enrolls || exit 1
 
-    cut -d' ' -f2 $dset/trials_f | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_f || exit 1
-    cp $dset/trials_f ${dset}_trials_f/trials || exit 1
+#     cut -d' ' -f2 $dset/trials_f | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_f || exit 1
+#     cp $dset/trials_f ${dset}_trials_f/trials || exit 1
 
-    cut -d' ' -f2 $dset/trials_m | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_m || exit 1
-    cp $dset/trials_m ${dset}_trials_m/trials || exit 1
+#     cut -d' ' -f2 $dset/trials_m | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_m || exit 1
+#     cp $dset/trials_m ${dset}_trials_m/trials || exit 1
 
-    utils/combine_data.sh ${dset}_trials_all ${dset}_trials_f ${dset}_trials_m || exit 1
-    cat ${dset}_trials_f/trials ${dset}_trials_m/trials > ${dset}_trials_all/trials
+#     utils/combine_data.sh ${dset}_trials_all ${dset}_trials_f ${dset}_trials_m || exit 1
+#     cat ${dset}_trials_f/trials ${dset}_trials_m/trials > ${dset}_trials_all/trials
 
-    dset=data/vctk_$suff
-    utils/subset_data_dir.sh --utt-list $dset/enrolls_mic2 $dset ${dset}_enrolls || exit 1
-    cp $dset/enrolls_mic2 ${dset}_enrolls/enrolls || exit 1
+#     # vctk系列子数据集
+#     dset=$subdata/vctk_$suff
+#     utils/subset_data_dir.sh --utt-list $dset/enrolls_mic2 $dset ${dset}_enrolls || exit 1
+#     cp $dset/enrolls_mic2 ${dset}_enrolls/enrolls || exit 1
 
-    cut -d' ' -f2 $dset/trials_f_mic2 | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_f || exit 1
-    cp $dset/trials_f_mic2 ${dset}_trials_f/trials || exit 1
+#     cut -d' ' -f2 $dset/trials_f_mic2 | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_f || exit 1
+#     cp $dset/trials_f_mic2 ${dset}_trials_f/trials || exit 1
 
-    cut -d' ' -f2 $dset/trials_f_common_mic2 | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_f_common || exit 1
-    cp $dset/trials_f_common_mic2 ${dset}_trials_f_common/trials || exit 1
+#     cut -d' ' -f2 $dset/trials_f_common_mic2 | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_f_common || exit 1
+#     cp $dset/trials_f_common_mic2 ${dset}_trials_f_common/trials || exit 1
 
-    utils/combine_data.sh ${dset}_trials_f_all ${dset}_trials_f ${dset}_trials_f_common || exit 1
-    cat ${dset}_trials_f/trials ${dset}_trials_f_common/trials > ${dset}_trials_f_all/trials
+#     utils/combine_data.sh ${dset}_trials_f_all ${dset}_trials_f ${dset}_trials_f_common || exit 1
+#     cat ${dset}_trials_f/trials ${dset}_trials_f_common/trials > ${dset}_trials_f_all/trials
 
-    cut -d' ' -f2 $dset/trials_m_mic2 | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_m || exit 1
-    cp $dset/trials_m_mic2 ${dset}_trials_m/trials || exit 1
+#     cut -d' ' -f2 $dset/trials_m_mic2 | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_m || exit 1
+#     cp $dset/trials_m_mic2 ${dset}_trials_m/trials || exit 1
 
-    cut -d' ' -f2 $dset/trials_m_common_mic2 | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_m_common || exit 1
-    cp $dset/trials_m_common_mic2 ${dset}_trials_m_common/trials || exit 1
+#     cut -d' ' -f2 $dset/trials_m_common_mic2 | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp $dset ${dset}_trials_m_common || exit 1
+#     cp $dset/trials_m_common_mic2 ${dset}_trials_m_common/trials || exit 1
 
-    utils/combine_data.sh ${dset}_trials_m_all ${dset}_trials_m ${dset}_trials_m_common || exit 1
-    cat ${dset}_trials_m/trials ${dset}_trials_m_common/trials > ${dset}_trials_m_all/trials
+#     utils/combine_data.sh ${dset}_trials_m_all ${dset}_trials_m ${dset}_trials_m_common || exit 1
+#     cat ${dset}_trials_m/trials ${dset}_trials_m_common/trials > ${dset}_trials_m_all/trials
 
-    utils/combine_data.sh ${dset}_trials_all ${dset}_trials_f_all ${dset}_trials_m_all || exit 1
-    cat ${dset}_trials_f_all/trials ${dset}_trials_m_all/trials > ${dset}_trials_all/trials
-  done
-  rm $temp
-fi
+#     utils/combine_data.sh ${dset}_trials_all ${dset}_trials_f_all ${dset}_trials_m_all || exit 1
+#     cat ${dset}_trials_f_all/trials ${dset}_trials_m_all/trials > ${dset}_trials_all/trials
+#   done
+#   rm $temp
+# fi
 
+subdata=corpora/data/utt_list
 # Anonymization
 if [ $stage -le 9 ]; then
   printf "${GREEN}\nStage 9: Anonymizing evaluation datasets...${NC}\n"
@@ -207,6 +213,8 @@ if [ $stage -le 9 ]; then
               vctk_dev_{enrolls,trials_f_all,trials_m_all} \
               libri_test_{enrolls,trials_f,trials_m} \
               vctk_test_{enrolls,trials_f_all,trials_m_all}; do
+  # -z：判断字符串是否为空
+  # 如果dset中不包含enroll，则输出的是空字符串，判空成立，执行then后面的操作
 	if [ -z "$(echo $dset | grep enrolls)" ]; then
       anon_level=$anon_level_trials
       mc_coeff=$mc_coeff_trials
@@ -232,6 +240,8 @@ if [ $stage -le 9 ]; then
         awk -F'[/.]' '{print $5 " sox " $0 " -t wav -R -b 16 - |"}' > data/$dset$anon_data_suffix/wav.scp
     else
       printf "${GREEN}\nStage 9: Anonymizing using x-vectors and neural wavform models...${NC}\n"
+      dset_dir=$subdata/$dset
+      echo "dset_dir=$dset_dir"
       local/anon/anonymize_data_dir.sh \
         --nj $nj --anoni-pool $anoni_pool \
         --data-netcdf $data_netcdf \
@@ -241,28 +251,28 @@ if [ $stage -le 9 ]; then
         --pseudo-xvec-rand-level $anon_level --distance $distance \
         --proximity $proximity --cross-gender $cross_gender \
 	      --rand-seed $rand_seed \
-        --anon-data-suffix $anon_data_suffix $dset || exit 1;
+        --anon-data-suffix $anon_data_suffix $dset_dir || exit 1;
     fi
-    if [ -f data/$dset/enrolls ]; then
-      cp data/$dset/enrolls data/$dset$anon_data_suffix/ || exit 1
+    if [ -f $dset_dir/enrolls ]; then
+      cp $dset_dir/enrolls $dset_dir$anon_data_suffix/ || exit 1
     else
-      [ ! -f data/$dset/trials ] && echo "File data/$dset/trials does not exist" && exit 1
-      cp data/$dset/trials data/$dset$anon_data_suffix/ || exit 1
+      [ ! -f $dset_dir/trials ] && echo "File $dset_dir/trials does not exist" && exit 1
+      cp $dset_dir/trials $dset_dir$anon_data_suffix/ || exit 1
     fi
     rand_seed=$((rand_seed+1))
   done
 fi
 
+subdata=corpora/data/utt_list
 # Make VCTK anonymized evaluation subsets
 if [ $stage -le 10 ]; then
   printf "${GREEN}\nStage 10: Making VCTK anonymized evaluation subsets...${NC}\n"
   temp=$(mktemp)
   for suff in dev test; do
-    dset=data/vctk_$suff
+    dset=$subdata/vctk_$suff
     for name in ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_m_all$anon_data_suffix; do
       [ ! -d $name ] && echo "Directory $name does not exist" && exit 1
     done
-
     cut -d' ' -f2 ${dset}_trials_f/trials | sort | uniq > $temp
     utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_f${anon_data_suffix} || exit 1
     cp ${dset}_trials_f/trials ${dset}_trials_f${anon_data_suffix} || exit 1
@@ -282,6 +292,9 @@ if [ $stage -le 10 ]; then
   rm $temp
 fi
 
+
+subdata=corpora/data/utt_list
+# Evaluate datasets using speaker verification
 if [ $stage -le 11 ]; then
   printf "${GREEN}\nStage 11: Evaluate datasets using speaker verification...${NC}\n"
   for suff in dev test; do
@@ -347,21 +360,23 @@ if [ $stage -le 11 ]; then
   done
 fi
 
+subdata=corpora/data/utt_list
 # Make ASR evaluation subsets
 if [ $stage -le 12 ]; then
   printf "${GREEN}\nStage 12: Making ASR evaluation subsets...${NC}\n"
   for suff in dev test; do
-    for name in data/libri_${suff}_{trials_f,trials_m} data/libri_${suff}_{trials_f,trials_m}$anon_data_suffix \
-        data/vctk_${suff}_{trials_f_all,trials_m_all} data/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix; do
+    for name in $subdata/libri_${suff}_{trials_f,trials_m} $subdata/libri_${suff}_{trials_f,trials_m}$anon_data_suffix \
+        $subdata/vctk_${suff}_{trials_f_all,trials_m_all} $subdata/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix; do
       [ ! -d $name ] && echo "Directory $name does not exist" && exit 1
     done
-    utils/combine_data.sh data/libri_${suff}_asr data/libri_${suff}_{trials_f,trials_m} || exit 1
-    utils/combine_data.sh data/libri_${suff}_asr$anon_data_suffix data/libri_${suff}_{trials_f,trials_m}$anon_data_suffix || exit 1
-    utils/combine_data.sh data/vctk_${suff}_asr data/vctk_${suff}_{trials_f_all,trials_m_all} || exit 1
-    utils/combine_data.sh data/vctk_${suff}_asr$anon_data_suffix data/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix || exit 1
+    utils/combine_data.sh $subdata/libri_${suff}_asr $subdata/libri_${suff}_{trials_f,trials_m} || exit 1
+    utils/combine_data.sh $subdata/libri_${suff}_asr$anon_data_suffix $subdata/libri_${suff}_{trials_f,trials_m}$anon_data_suffix || exit 1
+    utils/combine_data.sh $subdata/vctk_${suff}_asr $subdata/vctk_${suff}_{trials_f_all,trials_m_all} || exit 1
+    utils/combine_data.sh $subdata/vctk_${suff}_asr$anon_data_suffix $subdata/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix || exit 1
   done
 fi
 
+# Performing intelligibility assessment using ASR decoding
 if [ $stage -le 13 ]; then
   for dset in libri vctk; do
     for suff in dev test; do
@@ -373,6 +388,7 @@ if [ $stage -le 13 ]; then
   done
 fi
 
+# Collecting results
 if [ $stage -le 14 ]; then
   printf "${GREEN}\nStage 14: Collecting results${NC}\n"
   expo=$results/results.txt
@@ -411,6 +427,7 @@ if [ $stage -le 14 ]; then
   done
 fi
 
+# Compute the de-indentification and the voice-distinctiveness preservation with the similarity matrices
 if [ $stage -le 15 ]; then
    printf "${GREEN}\nStage 15: Compute the de-indentification and the voice-distinctiveness preservation with the similarity matrices${NC}\n"
    for suff in dev test; do
@@ -421,6 +438,7 @@ if [ $stage -le 15 ]; then
    done
 fi
 
+# Collecting results for re-indentification and the voice-distinctiveness preservation
 if [ $stage -le 16 ]; then
    printf "${GREEN}\nStage 16: Collecting results for re-indentification and the voice-distinctiveness preservation${NC}\n"
   expo=$results/results.txt

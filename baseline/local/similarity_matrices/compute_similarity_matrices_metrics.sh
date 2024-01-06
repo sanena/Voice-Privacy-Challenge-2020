@@ -20,7 +20,8 @@ plda_dir=$asv_eval_model/xvect_train_clean_360
 anon_data_suffix=_anon
 osp_set_folder=$asv_eval_model/xvect_$set_test
 psp_set_folder=${osp_set_folder}$anon_data_suffix
-utt2spk=data/$set_test/utt2spk
+data_dir=corpora/data/utt_list
+utt2spk=$data_dir/$set_test/utt2spk
 
 printf "asv_eval_model = $asv_eval_model\n"
 printf "set_test = $set_test\n"
