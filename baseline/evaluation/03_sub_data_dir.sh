@@ -12,28 +12,32 @@ cd $root_dir
 xvec_nnet_dir=exp/models/2_xvect_extr/exp/xvector_nnet_1a
 anon_xvec_out_dir=${xvec_nnet_dir}/anon
 
+data_netcdf=$(realpath exp/am_nsf_data)  
+
 # anon wav
 # anon_wav_dir=corpora/res/test_utt_list
-anon_wav_dir=$root_dir/corpora/test_utt_list_2/anon_wav
+anon_wav_dir=$root_dir/corpora/test_1_utt_list_laplace/anon_wav
 anon_data_suffix=_anon
 
-data=corpora/test_utt_list_2/data
+data=corpora/test_1_utt_list/data
 # data=corpora/test
 
 RED='\033[0;31m'  # 用于设置文本颜色
 NC='\033[0m'      # 用于重置文本颜色
 
-for dset in libri_dev_{enrolls,trials_f,trials_m} \
-              vctk_dev_{enrolls,trials_f_all,trials_m_all} \
-              libri_test_{enrolls,trials_f,trials_m} \
-              vctk_test_{enrolls,trials_f_all,trials_m_all}; do
+# for dset in libri_dev_{enrolls,trials_f,trials_m} \
+#               vctk_dev_{enrolls,trials_f_all,trials_m_all} \
+#               libri_test_{enrolls,trials_f,trials_m} \
+#               vctk_test_{enrolls,trials_f_all,trials_m_all}; do
+for dset in vctk_dev_{enrolls,trials_f_all,trials_m_all} \
+            vctk_test_{enrolls,trials_f_all,trials_m_all}; do
     printf "${RED}\nStage a.7: Creating new data directories corresponding to anonymization.${NC}\n"
     # 匿名化后的语音文件路径
-    # wav_path=${data_netcdf}/${data_dir}/nsf_output_wav
+    # wav_path=${data_netcdf}/${dset}/nsf_output_wav
     wav_path=${anon_wav_dir}/${dset}
     new_data_dir=${data}/${dset}${anon_data_suffix}
     if [ -d "$new_data_dir" ]; then
-    rm -rf ${new_data_dir}
+        rm -rf ${new_data_dir}
     fi
     utils/copy_data_dir.sh ${data}/${dset} ${new_data_dir}
     [ -f ${new_data_dir}/feats.scp ] && rm ${new_data_dir}/feats.scp
@@ -41,6 +45,7 @@ for dset in libri_dev_{enrolls,trials_f,trials_m} \
     # Copy new spk2gender in case cross_gender vc has been done
     cp ${anon_xvec_out_dir}/xvectors_${dset}/pseudo_xvecs/spk2gender ${new_data_dir}/
     awk -v p="$wav_path" '{split($1, arr, /[-_]/); print $1, "sox", p"/"arr[1]"/"$1"_anon.wav", "-t wav -R -b 16 - |"}' $data/${dset}/wav.scp > ${new_data_dir}/wav.scp
+    # awk -v p="$wav_path" '{print $1, "sox", p"/"$1".wav", "-t wav -R -b 16 - |"}' $data/${dset}/wav.scp > ${new_data_dir}/wav.scp
 
     if [ -f $data/$dset/enrolls ]; then
         cp $data/$dset/enrolls ${new_data_dir} || exit 1
@@ -77,6 +82,6 @@ for suff in dev test; do
     cut -d' ' -f2 ${dset}_trials_m_common/trials | sort | uniq > $temp
     utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_m_all$anon_data_suffix ${dset}_trials_m_common${anon_data_suffix} || exit 1
     cp ${dset}_trials_m_common/trials ${dset}_trials_m_common${anon_data_suffix} || exit 1
-    done
+done
 rm $temp
 # fi

@@ -8,7 +8,7 @@ cd $root_dir
 . cmd.sh
 
 scp_dir=$root_dir/exp/models/2_xvect_extr/exp/xvector_nnet_1a/anon
-target_dir=$root_dir/corpora/test_utt_list_2/xvector
+target_dir=$root_dir/corpora/test_1_utt_list/xvector
 
 for dset in libri_dev_{enrolls,trials_f,trials_m} \
               vctk_dev_{enrolls,trials_f_all,trials_m_all} \

@@ -25,7 +25,7 @@ set -e
 
 nj=$(nproc)
 mcadams=false
-stage=0
+stage=4
 
 download_full=false  # If download_full=true all the data that can be used in the training/development will be dowloaded (except for Voxceleb-1,2 corpus); otherwise - only those subsets that are used in the current baseline (with the pretrained models)
 data_url_librispeech=www.openslr.org/resources/12  # Link to download LibriSpeech corpus
@@ -108,13 +108,14 @@ if ! $mcadams; then
 #     done
 #   fi
 
-#   # Download LibriTTS data sets for training anonymization system (train-clean-100)
-#   if $download_full && [[ $stage -le 4 ]]; then
-#     printf "${GREEN}\nStage 4: Downloading LibriTTS data sets for training anonymization system (train-clean-100)...${NC}\n"
-#     for part in train-clean-100; do
-#       local/download_and_untar.sh $corpora $data_url_libritts $part LibriTTS || exit 1;
-#     done
-#   fi
+  # Download LibriTTS data sets for training anonymization system (train-clean-100)
+  # if $download_full && [[ $stage -le 4 ]]; then
+  # if [ $stage -le 4 ]; then
+  #   printf "${GREEN}\nStage 4: Downloading LibriTTS data sets for training anonymization system (train-clean-100)...${NC}\n"
+  #   for part in train-clean-100; do
+  #     local/download_and_untar.sh $corpora $data_url_libritts $part LibriTTS || exit 1;
+  #   done
+  # fi
    
 #   # Download LibriTTS data sets for training anonymization system (train-other-500)
 #   if [ $stage -le 5 ]; then
@@ -145,7 +146,7 @@ fi # ! $mcadams
 
 
 subdata=corpora/data/utt_list
-# Make evaluation data
+# # Make evaluation data
 # if [ $stage -le 8 ]; then
 #   printf "${GREEN}\nStage 8: Making evaluation subsets...${NC}\n"
 #   temp=$(mktemp)
@@ -206,175 +207,175 @@ subdata=corpora/data/utt_list
 
 subdata=corpora/data/utt_list
 # Anonymization
-if [ $stage -le 9 ]; then
-  printf "${GREEN}\nStage 9: Anonymizing evaluation datasets...${NC}\n"
-  rand_seed=0
-  for dset in libri_dev_{enrolls,trials_f,trials_m} \
-              vctk_dev_{enrolls,trials_f_all,trials_m_all} \
-              libri_test_{enrolls,trials_f,trials_m} \
-              vctk_test_{enrolls,trials_f_all,trials_m_all}; do
-  # -z：判断字符串是否为空
-  # 如果dset中不包含enroll，则输出的是空字符串，判空成立，执行then后面的操作
-	if [ -z "$(echo $dset | grep enrolls)" ]; then
-      anon_level=$anon_level_trials
-      mc_coeff=$mc_coeff_trials
-	else
-      anon_level=$anon_level_enroll
-      mc_coeff=$mc_coeff_enroll
-	fi
-	echo "anon_level = $anon_level"
-	echo $dset
-    if $mcadams; then
-      printf "${GREEN}\nStage 9: Anonymizing using McAdams coefficient...${NC}\n"
-      #copy content of the folder to the new folder
-      utils/copy_data_dir.sh data/$dset data/$dset$anon_data_suffix || exit 1
-      #create folder that will contain the anonymised wav files
-      mkdir -p data/$dset$anon_data_suffix/wav
-      #anonymise subset based on the current wav.scp file 
-      python local/anon/anonymise_dir_mcadams.py \
-        --data_dir=data/$dset --anon_suffix=$anon_data_suffix \
-        --n_coeffs=$n_lpc --mc_coeff=$mc_coeff || exit 1
-      #overwrite wav.scp file with new anonymised content
-      #note sox is inclued to by-pass that files written by local/anon/anonymise_dir_mcadams.py were in float32 format and not pcm
-      ls data/$dset$anon_data_suffix/wav/*/*.wav | \
-        awk -F'[/.]' '{print $5 " sox " $0 " -t wav -R -b 16 - |"}' > data/$dset$anon_data_suffix/wav.scp
-    else
-      printf "${GREEN}\nStage 9: Anonymizing using x-vectors and neural wavform models...${NC}\n"
-      dset_dir=$subdata/$dset
-      echo "dset_dir=$dset_dir"
-      local/anon/anonymize_data_dir.sh \
-        --nj $nj --anoni-pool $anoni_pool \
-        --data-netcdf $data_netcdf \
-        --ppg-model $ppg_model --ppg-dir $ppg_dir \
-        --xvec-nnet-dir $xvec_nnet_dir \
-        --anon-xvec-out-dir $anon_xvec_out_dir --plda-dir $xvec_nnet_dir \
-        --pseudo-xvec-rand-level $anon_level --distance $distance \
-        --proximity $proximity --cross-gender $cross_gender \
-	      --rand-seed $rand_seed \
-        --anon-data-suffix $anon_data_suffix $dset_dir || exit 1;
-    fi
-    if [ -f $dset_dir/enrolls ]; then
-      cp $dset_dir/enrolls $dset_dir$anon_data_suffix/ || exit 1
-    else
-      [ ! -f $dset_dir/trials ] && echo "File $dset_dir/trials does not exist" && exit 1
-      cp $dset_dir/trials $dset_dir$anon_data_suffix/ || exit 1
-    fi
-    rand_seed=$((rand_seed+1))
-  done
-fi
+# if [ $stage -le 9 ]; then
+#   printf "${GREEN}\nStage 9: Anonymizing evaluation datasets...${NC}\n"
+#   rand_seed=0
+#   for dset in libri_dev_{enrolls,trials_f,trials_m} \
+#               vctk_dev_{enrolls,trials_f_all,trials_m_all} \
+#               libri_test_{enrolls,trials_f,trials_m} \
+#               vctk_test_{enrolls,trials_f_all,trials_m_all}; do
+#   # -z：判断字符串是否为空
+#   # 如果dset中不包含enroll，则输出的是空字符串，判空成立，执行then后面的操作
+# 	if [ -z "$(echo $dset | grep enrolls)" ]; then
+#       anon_level=$anon_level_trials
+#       mc_coeff=$mc_coeff_trials
+# 	else
+#       anon_level=$anon_level_enroll
+#       mc_coeff=$mc_coeff_enroll
+# 	fi
+# 	echo "anon_level = $anon_level"
+# 	echo $dset
+#     if $mcadams; then
+#       printf "${GREEN}\nStage 9: Anonymizing using McAdams coefficient...${NC}\n"
+#       #copy content of the folder to the new folder
+#       utils/copy_data_dir.sh data/$dset data/$dset$anon_data_suffix || exit 1
+#       #create folder that will contain the anonymised wav files
+#       mkdir -p data/$dset$anon_data_suffix/wav
+#       #anonymise subset based on the current wav.scp file 
+#       python local/anon/anonymise_dir_mcadams.py \
+#         --data_dir=data/$dset --anon_suffix=$anon_data_suffix \
+#         --n_coeffs=$n_lpc --mc_coeff=$mc_coeff || exit 1
+#       #overwrite wav.scp file with new anonymised content
+#       #note sox is inclued to by-pass that files written by local/anon/anonymise_dir_mcadams.py were in float32 format and not pcm
+#       ls data/$dset$anon_data_suffix/wav/*/*.wav | \
+#         awk -F'[/.]' '{print $5 " sox " $0 " -t wav -R -b 16 - |"}' > data/$dset$anon_data_suffix/wav.scp
+#     else
+#       printf "${GREEN}\nStage 9: Anonymizing using x-vectors and neural wavform models...${NC}\n"
+#       dset_dir=$subdata/$dset
+#       echo "dset_dir=$dset_dir"
+#       local/anon/anonymize_data_dir.sh \
+#         --nj $nj --anoni-pool $anoni_pool \
+#         --data-netcdf $data_netcdf \
+#         --ppg-model $ppg_model --ppg-dir $ppg_dir \
+#         --xvec-nnet-dir $xvec_nnet_dir \
+#         --anon-xvec-out-dir $anon_xvec_out_dir --plda-dir $xvec_nnet_dir \
+#         --pseudo-xvec-rand-level $anon_level --distance $distance \
+#         --proximity $proximity --cross-gender $cross_gender \
+# 	      --rand-seed $rand_seed \
+#         --anon-data-suffix $anon_data_suffix $dset_dir || exit 1;
+#     fi
+#     if [ -f $dset_dir/enrolls ]; then
+#       cp $dset_dir/enrolls $dset_dir$anon_data_suffix/ || exit 1
+#     else
+#       [ ! -f $dset_dir/trials ] && echo "File $dset_dir/trials does not exist" && exit 1
+#       cp $dset_dir/trials $dset_dir$anon_data_suffix/ || exit 1
+#     fi
+#     rand_seed=$((rand_seed+1))
+#   done
+# fi
 
 subdata=corpora/data/utt_list
 # Make VCTK anonymized evaluation subsets
-if [ $stage -le 10 ]; then
-  printf "${GREEN}\nStage 10: Making VCTK anonymized evaluation subsets...${NC}\n"
-  temp=$(mktemp)
-  for suff in dev test; do
-    dset=$subdata/vctk_$suff
-    for name in ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_m_all$anon_data_suffix; do
-      [ ! -d $name ] && echo "Directory $name does not exist" && exit 1
-    done
-    cut -d' ' -f2 ${dset}_trials_f/trials | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_f${anon_data_suffix} || exit 1
-    cp ${dset}_trials_f/trials ${dset}_trials_f${anon_data_suffix} || exit 1
+# if [ $stage -le 10 ]; then
+#   printf "${GREEN}\nStage 10: Making VCTK anonymized evaluation subsets...${NC}\n"
+#   temp=$(mktemp)
+#   for suff in dev test; do
+#     dset=$subdata/vctk_$suff
+#     for name in ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_m_all$anon_data_suffix; do
+#       [ ! -d $name ] && echo "Directory $name does not exist" && exit 1
+#     done
+#     cut -d' ' -f2 ${dset}_trials_f/trials | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_f${anon_data_suffix} || exit 1
+#     cp ${dset}_trials_f/trials ${dset}_trials_f${anon_data_suffix} || exit 1
 
-    cut -d' ' -f2 ${dset}_trials_f_common/trials | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_f_common${anon_data_suffix} || exit 1
-    cp ${dset}_trials_f_common/trials ${dset}_trials_f_common${anon_data_suffix} || exit 1
+#     cut -d' ' -f2 ${dset}_trials_f_common/trials | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_f_all$anon_data_suffix ${dset}_trials_f_common${anon_data_suffix} || exit 1
+#     cp ${dset}_trials_f_common/trials ${dset}_trials_f_common${anon_data_suffix} || exit 1
 
-    cut -d' ' -f2 ${dset}_trials_m/trials | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_m_all$anon_data_suffix ${dset}_trials_m${anon_data_suffix} || exit 1
-    cp ${dset}_trials_m/trials ${dset}_trials_m${anon_data_suffix} || exit 1
+#     cut -d' ' -f2 ${dset}_trials_m/trials | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_m_all$anon_data_suffix ${dset}_trials_m${anon_data_suffix} || exit 1
+#     cp ${dset}_trials_m/trials ${dset}_trials_m${anon_data_suffix} || exit 1
 
-    cut -d' ' -f2 ${dset}_trials_m_common/trials | sort | uniq > $temp
-    utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_m_all$anon_data_suffix ${dset}_trials_m_common${anon_data_suffix} || exit 1
-    cp ${dset}_trials_m_common/trials ${dset}_trials_m_common${anon_data_suffix} || exit 1
-  done
-  rm $temp
-fi
+#     cut -d' ' -f2 ${dset}_trials_m_common/trials | sort | uniq > $temp
+#     utils/subset_data_dir.sh --utt-list $temp ${dset}_trials_m_all$anon_data_suffix ${dset}_trials_m_common${anon_data_suffix} || exit 1
+#     cp ${dset}_trials_m_common/trials ${dset}_trials_m_common${anon_data_suffix} || exit 1
+#   done
+#   rm $temp
+# fi
 
 
 subdata=corpora/data/utt_list
 # Evaluate datasets using speaker verification
-if [ $stage -le 11 ]; then
-  printf "${GREEN}\nStage 11: Evaluate datasets using speaker verification...${NC}\n"
-  for suff in dev test; do
-    printf "${RED}**ASV: libri_${suff}_trials_f, enroll - original, trial - original**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_f --results $results || exit 1;
-    printf "${RED}**ASV: libri_${suff}_trials_f, enroll - original, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
-    printf "${RED}**ASV: libri_${suff}_trials_f, enroll - anonymized, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls libri_${suff}_enrolls$anon_data_suffix --trials libri_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
+# if [ $stage -le 11 ]; then
+#   printf "${GREEN}\nStage 11: Evaluate datasets using speaker verification...${NC}\n"
+#   for suff in dev test; do
+#     printf "${RED}**ASV: libri_${suff}_trials_f, enroll - original, trial - original**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_f --results $results || exit 1;
+#     printf "${RED}**ASV: libri_${suff}_trials_f, enroll - original, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: libri_${suff}_trials_f, enroll - anonymized, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls libri_${suff}_enrolls$anon_data_suffix --trials libri_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
 
-    printf "${RED}**ASV: libri_${suff}_trials_m, enroll - original, trial - original**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_m --results $results || exit 1;
-    printf "${RED}**ASV: libri_${suff}_trials_m, enroll - original, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
-    printf "${RED}**ASV: libri_${suff}_trials_m, enroll - anonymized, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls libri_${suff}_enrolls$anon_data_suffix --trials libri_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: libri_${suff}_trials_m, enroll - original, trial - original**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_m --results $results || exit 1;
+#     printf "${RED}**ASV: libri_${suff}_trials_m, enroll - original, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls libri_${suff}_enrolls --trials libri_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: libri_${suff}_trials_m, enroll - anonymized, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls libri_${suff}_enrolls$anon_data_suffix --trials libri_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
 
-    printf "${RED}**ASV: vctk_${suff}_trials_f, enroll - original, trial - original**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_f, enroll - original, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_f, enroll - anonymized, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_f, enroll - original, trial - original**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_f, enroll - original, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_f, enroll - anonymized, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_f$anon_data_suffix --results $results || exit 1;
 
-    printf "${RED}**ASV: vctk_${suff}_trials_m, enroll - original, trial - original**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_m, enroll - original, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_m, enroll - anonymized, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_m, enroll - original, trial - original**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_m, enroll - original, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_m, enroll - anonymized, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_m$anon_data_suffix --results $results || exit 1;
 
-    printf "${RED}**ASV: vctk_${suff}_trials_f_common, enroll - original, trial - original**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f_common --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_f_common, enroll - original, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f_common$anon_data_suffix --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_f_common, enroll - anonymized, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_f_common$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_f_common, enroll - original, trial - original**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f_common --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_f_common, enroll - original, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_f_common$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_f_common, enroll - anonymized, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_f_common$anon_data_suffix --results $results || exit 1;
 
-    printf "${RED}**ASV: vctk_${suff}_trials_m_common, enroll - original, trial - original**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m_common --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_m_common, enroll - original, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m_common$anon_data_suffix --results $results || exit 1;
-    printf "${RED}**ASV: vctk_${suff}_trials_m_common, enroll - anonymized, trial - anonymized**${NC}\n"
-    local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
-      --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_m_common$anon_data_suffix --results $results || exit 1;
-  done
-fi
+#     printf "${RED}**ASV: vctk_${suff}_trials_m_common, enroll - original, trial - original**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m_common --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_m_common, enroll - original, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls --trials vctk_${suff}_trials_m_common$anon_data_suffix --results $results || exit 1;
+#     printf "${RED}**ASV: vctk_${suff}_trials_m_common, enroll - anonymized, trial - anonymized**${NC}\n"
+#     local/asv_eval.sh --plda_dir $plda_dir --asv_eval_model $asv_eval_model \
+#       --enrolls vctk_${suff}_enrolls$anon_data_suffix --trials vctk_${suff}_trials_m_common$anon_data_suffix --results $results || exit 1;
+#   done
+# fi
 
 subdata=corpora/data/utt_list
 # Make ASR evaluation subsets
-if [ $stage -le 12 ]; then
-  printf "${GREEN}\nStage 12: Making ASR evaluation subsets...${NC}\n"
-  for suff in dev test; do
-    for name in $subdata/libri_${suff}_{trials_f,trials_m} $subdata/libri_${suff}_{trials_f,trials_m}$anon_data_suffix \
-        $subdata/vctk_${suff}_{trials_f_all,trials_m_all} $subdata/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix; do
-      [ ! -d $name ] && echo "Directory $name does not exist" && exit 1
-    done
-    utils/combine_data.sh $subdata/libri_${suff}_asr $subdata/libri_${suff}_{trials_f,trials_m} || exit 1
-    utils/combine_data.sh $subdata/libri_${suff}_asr$anon_data_suffix $subdata/libri_${suff}_{trials_f,trials_m}$anon_data_suffix || exit 1
-    utils/combine_data.sh $subdata/vctk_${suff}_asr $subdata/vctk_${suff}_{trials_f_all,trials_m_all} || exit 1
-    utils/combine_data.sh $subdata/vctk_${suff}_asr$anon_data_suffix $subdata/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix || exit 1
-  done
-fi
+# if [ $stage -le 12 ]; then
+#   printf "${GREEN}\nStage 12: Making ASR evaluation subsets...${NC}\n"
+#   for suff in dev test; do
+#     for name in $subdata/libri_${suff}_{trials_f,trials_m} $subdata/libri_${suff}_{trials_f,trials_m}$anon_data_suffix \
+#         $subdata/vctk_${suff}_{trials_f_all,trials_m_all} $subdata/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix; do
+#       [ ! -d $name ] && echo "Directory $name does not exist" && exit 1
+#     done
+#     utils/combine_data.sh $subdata/libri_${suff}_asr $subdata/libri_${suff}_{trials_f,trials_m} || exit 1
+#     utils/combine_data.sh $subdata/libri_${suff}_asr$anon_data_suffix $subdata/libri_${suff}_{trials_f,trials_m}$anon_data_suffix || exit 1
+#     utils/combine_data.sh $subdata/vctk_${suff}_asr $subdata/vctk_${suff}_{trials_f_all,trials_m_all} || exit 1
+#     utils/combine_data.sh $subdata/vctk_${suff}_asr$anon_data_suffix $subdata/vctk_${suff}_{trials_f_all,trials_m_all}$anon_data_suffix || exit 1
+#   done
+# fi
 
 # Performing intelligibility assessment using ASR decoding
 if [ $stage -le 13 ]; then

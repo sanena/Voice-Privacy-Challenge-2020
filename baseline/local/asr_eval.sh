@@ -17,8 +17,9 @@ ivec_extr=$model/extractor
 graph_dir=$model/graph_tgsmall
 large_lang=$model/lang_test_tglarge
 small_lang=$model/lang_test_tgsmall
-# data_dir=corpora/test_utt_list_2/data
-data_dir=corpora/data/utt_list
+# baseline
+# data_dir=corpora/data/utt_list
+data_dir=corpora/test_1_utt_list/data
 data=$data_dir/${dset}_hires
 ivect=$ivec_extr/ivect_$dset
 

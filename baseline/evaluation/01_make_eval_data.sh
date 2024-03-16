@@ -8,18 +8,20 @@ cd $root_dir
 . path.sh
 . cmd.sh
 
-subdata=corpora/test_utt_list_2/data
+subdata=corpora/test_1_utt_list/data
 # Make evaluation data
 printf "${GREEN}\nStage 8: Making evaluation subsets...${NC}\n"
 temp=$(mktemp)
 for suff in dev test; do
-    for name in data/libri_$suff/{enrolls,trials_f,trials_m} \
-        data/vctk_$suff/{enrolls_mic2,trials_f_common_mic2,trials_f_mic2,trials_m_common_mic2,trials_m_mic2}; do
+    for name in data/libri_$suff/{enrolls2,trials_f2,trials_m2} \
+        data/vctk_$suff/{enrolls_mic22,trials_f_common_mic22,trials_f_mic22,trials_m_common_mic22,trials_m_mic22}; do
         [ ! -f $name ] && echo "File $name does not exist" && exit 1
     done
 
     dset=data/libri_$suff
     eval_dset=$subdata/libri_$suff
+
+    echo "${dset}"
     utils/subset_data_dir.sh --utt-list $dset/enrolls2 $dset ${eval_dset}_enrolls || exit 1
     cp $dset/enrolls2 ${eval_dset}_enrolls/enrolls || exit 1
 
@@ -92,7 +94,7 @@ ppg_dir=${ppg_model}/nnet3_cleaned
 xvec_nnet_dir=exp/models/2_xvect_extr/exp/xvector_nnet_1a
 anon_xvec_out_dir=${xvec_nnet_dir}/anon
  
-subdata=corpora/utt_list/data
+subdata=corpora/test_1_utt_list/data
 # Anonymization
 printf "${GREEN}\nStage 9: Anonymizing evaluation datasets...${NC}\n"
 rand_seed=0
@@ -124,11 +126,11 @@ for dset in libri_dev_{enrolls,trials_f,trials_m} \
         --rand-seed $rand_seed \
         --anon-data-suffix $anon_data_suffix $dset_dir || exit 1;
 
-    if [ -f $dset_dir/$dset/enrolls ]; then
-        cp $dset_dir/$dset/enrolls $dset_dir/$dset$anon_data_suffix/ || exit 1
+    if [ -f $dset_dir/enrolls ]; then
+      cp $dset_dir/enrolls $dset_dir$anon_data_suffix/ || exit 1
     else
-        [ ! -f $dset_dir/$dset/trials ] && echo "File $dset_dir/$dset/trials does not exist" && exit 1
-        cp $dset_dir/$dset/trials $dset_dir/$dset$anon_data_suffix/ || exit 1
+      [ ! -f $dset_dir/trials ] && echo "File $dset_dir/trials does not exist" && exit 1
+      cp $dset_dir/trials $dset_dir$anon_data_suffix/ || exit 1
     fi
     rand_seed=$((rand_seed+1))
 done

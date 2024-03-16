@@ -16,8 +16,9 @@ plda_dir=$asv_eval_model/xvect_train_clean_360
 enrolls=libri_dev_enrolls
 trials=libri_dev_trials_f
 # data_dir=data
-# data_dir=corpora/test_utt_list_2/data
-data_dir=corpora/data/utt_list
+# baseline
+# data_dir=corpora/data/utt_list
+data_dir=corpora/test_1_utt_list/data
 
 # 保存结果的路径
 printf -v time '%(%Y-%m-%d-%H-%M-%S)T' -1

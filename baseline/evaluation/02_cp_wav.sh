@@ -7,8 +7,8 @@ cd $root_dir
 . path.sh
 . cmd.sh
 
-scp_dir="$root_dir/corpora/test_utt_list_2/data"
-target_dir="$root_dir/corpora/test_utt_list_2/original_wav"
+scp_dir="$root_dir/corpora/test_1_utt_list/data"
+target_dir="$root_dir/corpora/test_1_utt_list/original_wav"
 
 
 for dset in libri_dev_{enrolls,trials_f,trials_m} \
